@@ -78,7 +78,7 @@ $moveRColors = array (
   $magenta,$white,$white,$magenta,$white,$white,$magenta,$white,$white,
   $red,$red,$white,$red,$red,$white,$red,$red,$white
 );
-$moveRPrimeValues = array (
+$moveRPValues = array (
   'B1','B2','D7','B4','B5','D4','B7','B8','D1',
   'L1','L2','L3','L4','L5','L6','L7','L8','L9',
   'U1','U2','B3','U4','U5','B6','U7','U8','B9',
@@ -86,7 +86,7 @@ $moveRPrimeValues = array (
   'F9','D2','D3','F6','D5','D6','F3','D8','D9',
   'F1','F2','U3','F4','F5','U6','F7','F8','U9'
 );
-$moveRPrimeColors = array (
+$moveRPColors = array (
   $magenta,$magenta,$white,$magenta,$magenta,$white,$magenta,$magenta,$white,
   $blue,$blue,$blue,$blue,$blue,$blue,$blue,$blue,$blue,
   $yellow,$yellow,$magenta,$yellow,$yellow,$magenta,$yellow,$yellow,$magenta,
@@ -110,7 +110,7 @@ $moveLColors = array (
   $white,$white,$red,$white,$white,$red,$white,$white,$red,
   $yellow,$red,$red,$yellow,$red,$red,$yellow,$red,$red
 );
-$moveLPrimeValues = array (
+$moveLPValues = array (
   'U1','B2','B3','U4','B5','B6','U7','B8','B9',
   'L3','L6','L9','L2','L5','L8','L1','L4','L7',
   'F1','U2','U3','F4','U5','U6','F7','U8','U9',
@@ -118,7 +118,7 @@ $moveLPrimeValues = array (
   'D1','D2','B7','D4','D5','B4','D7','D8','B1',
   'D9','F2','F3','D6','F5','F6','D3','F8','F9'
 );
-$moveLPrimeColors = array (
+$moveLPColors = array (
   $yellow,$magenta,$magenta,$yellow,$magenta,$magenta,$yellow,$magenta,$magenta,
   $blue,$blue,$blue,$blue,$blue,$blue,$blue,$blue,$blue,
   $red,$yellow,$yellow,$red,$yellow,$yellow,$red,$yellow,$yellow,
@@ -142,7 +142,7 @@ $moveFColors = array (
   $white,$white,$white,$white,$white,$white,$green,$green,$green,
   $red,$red,$red,$red,$red,$red,$red,$red,$red
 );
-$moveFPrimeValues = array (
+$moveFPValues = array (
   'B1','B2','B3','B4','B5','B6','B7','B8','B9',
   'L1','L2','L3','L4','L5','L6','U7','U8','U9',
   'U1','U2','U3','U4','U5','U6','R7','R8','R9',
@@ -150,7 +150,7 @@ $moveFPrimeValues = array (
   'D1','D2','D3','D4','D5','D6','L7','L8','L9',
   'F3','F6','F9','F2','F5','F8','F1','F4','F7'
 );
-$moveFPrimeColors = array (
+$moveFPColors = array (
   $magenta,$magenta,$magenta,$magenta,$magenta,$magenta,$magenta,$magenta,$magenta,
   $blue,$blue,$blue,$blue,$blue,$blue,$yellow,$yellow,$yellow,
   $yellow,$yellow,$yellow,$yellow,$yellow,$yellow,$green,$green,$green,
@@ -174,7 +174,7 @@ $moveBColors = array (
   $blue,$blue,$blue,$white,$white,$white,$white,$white,$white,
   $red,$red,$red,$red,$red,$red,$red,$red,$red
 );
-$moveBPrimeValues = array (
+$moveBPValues = array (
   'B3','B6','B9','B2','B5','B8','B1','B4','B7',
   'D1','D2','D3','L4','L5','L6','L7','L8','L9',
   'L1','L2','L3','U4','U5','U6','U7','U8','U9',
@@ -182,7 +182,7 @@ $moveBPrimeValues = array (
   'R1','R2','R3','D4','D5','D6','D7','D8','D9',
   'F1','F2','F3','F4','F5','F6','F7','F8','F9'
 );
-$moveBPrimeColors = array (
+$moveBPColors = array (
   $magenta,$magenta,$magenta,$magenta,$magenta,$magenta,$magenta,$magenta,$magenta,
   $white,$white,$white,$blue,$blue,$blue,$blue,$blue,$blue,
   $blue,$blue,$blue,$yellow,$yellow,$yellow,$yellow,$yellow,$yellow,
@@ -206,7 +206,7 @@ $moveDColors = array (
   $white,$white,$white,$white,$white,$white,$white,$white,$white,
   $red,$red,$red,$red,$red,$red,$blue,$blue,$blue
 );
-$moveDPrimeValues = array (
+$moveDPValues = array (
   'L7','L4','L1','B4','B5','B6','B7','B8','B9',
   'F7','L2','L3','F8','L5','L6','F9','L8','L9',
   'U1','U2','U3','U4','U5','U6','U7','U8','U9',
@@ -214,7 +214,7 @@ $moveDPrimeValues = array (
   'D3','D6','D9','D2','D5','D8','D1','D4','D7',
   'F1','F2','F3','F4','F5','F6','R9','R6','R3'
 );
-$moveDPrimeColors = array (
+$moveDPColors = array (
   $blue,$blue,$blue,$magenta,$magenta,$magenta,$magenta,$magenta,$magenta,
   $red,$blue,$blue,$red,$blue,$blue,$red,$blue,$blue,
   $yellow,$yellow,$yellow,$yellow,$yellow,$yellow,$yellow,$yellow,$yellow,

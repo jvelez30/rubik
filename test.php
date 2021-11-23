@@ -16,66 +16,66 @@ echo $blue."moveUP\n".$white;
 assertOrderedRubik($rubik);
 $rubik=moveUP($rubik);
 echo $blue."moveUP\n".$white;
-assertmoveUPRubik($rubik);
+assertMoveUPRubik($rubik);
 $rubik=moveU($rubik);
 // Test moveR function
 $rubik=moveR($rubik);
 echo $blue."moveR\n".$white;
 assertMoveRRubik($rubik);
-// Test moveRPrime function
-$rubik=moveRPrime($rubik);
-echo $blue."moveRPrime\n".$white;
+// Test moveRP function
+$rubik=moveRP($rubik);
+echo $blue."moveRP\n".$white;
 assertOrderedRubik($rubik);
-$rubik=moveRPrime($rubik);
-echo $blue."moveRPrime\n".$white;
-assertMoveRPrimeRubik($rubik);
+$rubik=moveRP($rubik);
+echo $blue."moveRP\n".$white;
+assertMoveRPRubik($rubik);
 $rubik=moveR($rubik);
 // Test moveL function
 $rubik=moveL($rubik);
 echo $blue."moveL\n".$white;
 assertMoveLRubik($rubik);
-// Test moveLPrime function
-$rubik=moveLPrime($rubik);
-echo $blue."moveLPrime\n".$white;
+// Test moveLP function
+$rubik=moveLP($rubik);
+echo $blue."moveLP\n".$white;
 assertOrderedRubik($rubik);
-$rubik=moveLPrime($rubik);
-echo $blue."moveLPrime\n".$white;
-assertMoveLPrimeRubik($rubik);
+$rubik=moveLP($rubik);
+echo $blue."moveLP\n".$white;
+assertMoveLPRubik($rubik);
 $rubik=moveL($rubik);
 // Test moveF function
 $rubik=moveF($rubik);
 echo $blue."moveF\n".$white;
 assertmoveFRubik($rubik);
-// Test moveFPrime function
-$rubik=moveFPrime($rubik);
-echo $blue."moveFPrime\n".$white;
+// Test moveFP function
+$rubik=moveFP($rubik);
+echo $blue."moveFP\n".$white;
 assertOrderedRubik($rubik);
-$rubik=moveFPrime($rubik);
-echo $blue."moveFPrime\n".$white;
-assertmoveFPrimeRubik($rubik);
-$rubik=MoveF($rubik);
+$rubik=moveFP($rubik);
+echo $blue."moveFP\n".$white;
+assertmoveFPRubik($rubik);
+$rubik=moveF($rubik);
 // Test MoveB function
-$rubik=MoveB($rubik);
+$rubik=moveB($rubik);
 echo $blue."moveB\n".$white;
 assertMoveBRubik($rubik);
-// Test MoveBPrime function
-$rubik=MoveBPrime($rubik);
-echo $blue."moveBPrime\n".$white;
+// Test MoveBP function
+$rubik=moveBP($rubik);
+echo $blue."moveBP\n".$white;
 assertOrderedRubik($rubik);
-$rubik=MoveBPrime($rubik);
-echo $blue."moveBPrime\n".$white;
-assertMoveBPrimeRubik($rubik);
-$rubik=MoveB($rubik);
+$rubik=moveBP($rubik);
+echo $blue."moveBP\n".$white;
+assertMoveBPRubik($rubik);
+$rubik=moveB($rubik);
 // Test MoveD function
-$rubik=MoveD($rubik);
+$rubik=moveD($rubik);
 echo $blue."moveD\n".$white;
 assertMoveDRubik($rubik);
-// Test MoveDPrime function
-$rubik=MoveDPrime($rubik);
-echo $blue."moveDPrime\n".$white;
+// Test MoveDP function
+$rubik=moveDP($rubik);
+echo $blue."moveDP\n".$white;
 assertOrderedRubik($rubik);
-$rubik=MoveDPrime($rubik);
-echo $blue."moveDPrime\n".$white;
-assertMoveDPrimeRubik($rubik);
-$rubik=MoveD($rubik);
+$rubik=moveDP($rubik);
+echo $blue."moveDP\n".$white;
+assertMoveDPRubik($rubik);
+$rubik=moveD($rubik);
 format($rubik);

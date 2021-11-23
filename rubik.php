@@ -95,7 +95,7 @@
    $rubik = rubikMove($rubik, $posToChange, $posNewVal);
    return $rubik;
  }
- function moveRPrime($rubik){
+ function moveRP($rubik){
    /* WITH TEST */
    // Rotate R Side in reverse
    $posToChange = array (
@@ -127,7 +127,7 @@
    $rubik = rubikMove($rubik, $posToChange, $posNewVal);
    return $rubik;
  }
- function moveLPrime($rubik){
+ function moveLP($rubik){
    /* WITH TEST */
    // Rotate L Side in reverse
    $posToChange = array (
@@ -160,7 +160,7 @@
    $rubik = rubikMove($rubik, $posToChange, $posNewVal);
    return $rubik;
  }
- function moveFPrime($rubik){
+ function moveFP($rubik){
    /* WITH TEST */
    // Rotate F Side in reverse
    $posToChange = array (
@@ -192,7 +192,7 @@
    $rubik = rubikMove($rubik, $posToChange, $posNewVal);
    return $rubik;
  }
- function moveBPrime($rubik){
+ function moveBP($rubik){
    /* WITH TEST */
    // Rotate B Side in reverse
    $posToChange = array (
@@ -224,7 +224,7 @@
    $rubik = rubikMove($rubik, $posToChange, $posNewVal);
    return $rubik;
  }
- function moveDPrime($rubik){
+ function moveDP($rubik){
    /* WITH TEST */
    // Rotate D Side in reverse
    $posToChange = array (
@@ -243,7 +243,7 @@
  function sexyMove($rubik){
    $rubik=moveR($rubik);
    $rubik=moveU($rubik);
-   $rubik=moveRPrime($rubik);
+   $rubik=moveRP($rubik);
    $rubik=moveUP($rubik);
    return $rubik;
  }
@@ -281,6 +281,6 @@
    $rubik=sexyMove($rubik);
  }
  */
- $rubik=moveDPrime($rubik);
+ $rubik=moveDP($rubik);
  format($rubik);
  // var_dump($rubik);
