@@ -327,8 +327,54 @@
  }
  $rubik=getOrderedRubik();
  
+ /*
  for ($j=0;$j<6;$j++){
    $rubik=sexyMove($rubik);
+ }
+ */
+ // If moves are setted via string query
+ if(isset($_GET['m'])){
+   $moves = explode('|',$_GET['m']);
+   foreach ($moves as $move){
+      switch ($move){
+         case 'U':
+            $rubik=moveU($rubik);
+            break;
+         case 'UP':
+            $rubik=moveUP($rubik);
+            break;
+         case 'R':
+            $rubik=moveR($rubik);
+            break;
+         case 'RP':
+            $rubik=moveRP($rubik);
+            break;
+         case 'L':
+            $rubik=moveL($rubik);
+            break;
+         case 'LP':
+            $rubik=moveLP($rubik);
+            break;
+         case 'F':
+            $rubik=moveF($rubik);
+            break;
+         case 'FP':
+            $rubik=moveFP($rubik);
+            break;
+         case 'B':
+            $rubik=moveB($rubik);
+            break;
+         case 'BP':
+            $rubik=moveBP($rubik);
+            break; 
+         case 'D':
+            $rubik=moveD($rubik);
+            break;
+         case 'DP':
+            $rubik=moveDP($rubik);
+            break;     
+      }
+   }
  }
  
  //$rubik=moveDP($rubik);
@@ -340,8 +386,6 @@
    // else html format is displayed
    formatHtml($rubik);
  }
-
- 
 
  // var_dump($rubik);
  
