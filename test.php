@@ -45,14 +45,14 @@ $rubik=moveL($rubik);
 // Test moveF function
 $rubik=moveF($rubik);
 echo $blue."moveF\n".$white;
-assertmoveFRubik($rubik);
+assertMoveFRubik($rubik);
 // Test moveFP function
 $rubik=moveFP($rubik);
 echo $blue."moveFP\n".$white;
 assertOrderedRubik($rubik);
 $rubik=moveFP($rubik);
 echo $blue."moveFP\n".$white;
-assertmoveFPRubik($rubik);
+assertMoveFPRubik($rubik);
 $rubik=moveF($rubik);
 // Test MoveB function
 $rubik=moveB($rubik);
