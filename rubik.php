@@ -49,12 +49,12 @@
  function moveU($rubik){
     // Rotate A Side
    $posToChange = array (
-      'U1','U2','U3','U6','U9','U7','U8','U4',
+      'U1','U2','U3','U6','U9','U8','U7','U4',
       'R1','R4','R7','F1','F2','F3','L3','L6','L9',
       'B7','B8','B9'
    );
    $posNewVal = array (
-      'U7','U4','U1','U2','U3','U9','U6','U8',
+      'U7','U4','U1','U2','U3','U6','U9','U8',
       'B7','B8','B9','R7','R4','R1','F1','F2','F3',
       'L9','L6','L3'
    );
@@ -62,7 +62,7 @@
    return $rubik;
  }
  function moveUPrime($rubik){
-   // Rotate A Side
+   // Rotate A Side in reverse
    $posToChange = array (
       'U1','U2','U3','U6','U9','U8','U7','U4',
       'R1','R4','R7','F1','F2','F3','L3','L6','L9',
@@ -106,6 +106,97 @@
    $rubik = rubikMove($rubik, $posToChange, $posNewVal);
    return $rubik;
  }
+ function moveL($rubik){
+   // Rotate L Side
+   $posToChange = array (
+      'L1','L2','L3','L6','L9','L7','L8','L4',
+      'B1','B4','B7','U1','U4','U7','F1','F4','F7',
+      'D3','D6','D9'
+   );
+   $posNewVal = array (
+      'L7','L4','L1','L2','L3','L9','L6','L8',
+      'D9','D6','D3','B1','B4','B7','U1','U4','U7',
+      'F7','F4','F1'
+   );
+   $rubik = rubikMove($rubik, $posToChange, $posNewVal);
+   return $rubik;
+ }
+ function moveLPrime($rubik){
+   // Rotate L Side in reverse
+   $posToChange = array (
+      'L1','L2','L3','L6','L9','L8','L7','L4',
+      'B1','B4','B7','U1','U4','U7','F1','F4','F7',
+      'D3','D6','D9'
+   );
+   $posNewVal = array (
+      'L3','L6','L9','L8','L7','L4','L1','L2',
+      'U1','U4','U7','F1','F4','F7','D9','D6','D3',
+      'B7','B4','B1',
+      
+   );
+   $rubik = rubikMove($rubik, $posToChange, $posNewVal);
+   return $rubik;
+ }
+ function moveF($rubik){
+   // Rotate F Side
+   $posToChange = array (
+      'F1','F2','F3','F6','F9','F7','F8','F4',
+      'L7','L8','L9','U7','U8','U9','R7','R8','R9',
+      'D7','D8','D9'
+   );
+   $posNewVal = array (
+      'F7','F4','F1','F2','F3','F9','F6','F8',
+      'D7','D8','D9','L7','L8','L9','U7','U8','U9',
+      'R7','R8','R9'
+   );
+   $rubik = rubikMove($rubik, $posToChange, $posNewVal);
+   return $rubik;
+ }
+ function moveFPrime($rubik){
+   // Rotate F Side in reverse
+   $posToChange = array (
+      'F1','F2','F3','F6','F9','F8','F7','F4',
+      'L7','L8','L9','U7','U8','U9','R7','R8','R9',
+      'D7','D8','D9'
+   );
+   $posNewVal = array (
+      'F3','F6','F9','F8','F7','F4','F1','F2',
+      'U7','U8','U9','R7','R8','R9','D7','D8','D9',
+      'L7','L8','L9'
+   );
+   $rubik = rubikMove($rubik, $posToChange, $posNewVal);
+   return $rubik;
+ }
+ function moveB($rubik){
+   // Rotate B Side
+   $posToChange = array (
+      'B1','B2','B3','B6','B9','B8','B7','B4',
+      'L1','L2','L3','U1','U2','U3','R1','R2','R3',
+      'D1','D2','D3'
+   );
+   $posNewVal = array (
+      'B7','B4','B1','B2','B3','B6','B9','B8',
+      'U1','U2','U3','R1','R2','R3','D1','D2','D3',
+      'L1','L2','L3'
+   );
+   $rubik = rubikMove($rubik, $posToChange, $posNewVal);
+   return $rubik;
+ }
+ function moveBPrime($rubik){
+   // Rotate B Side
+   $posToChange = array (
+      'B1','B2','B3','B6','B9','B8','B7','B4',
+      'L1','L2','L3','U1','U2','U3','R1','R2','R3',
+      'D1','D2','D3'
+   );
+   $posNewVal = array (
+      'B3','B6','B9','B8','B7','B4','B1','B2',
+      'D1','D2','D3','L1','L2','L3','U1','U2','U3',
+      'R1','R2','R3'
+   );
+   $rubik = rubikMove($rubik, $posToChange, $posNewVal);
+   return $rubik;
+ }
  function sexyMove($rubik){
    $rubik=moveR($rubik);
    $rubik=moveU($rubik);
@@ -142,11 +233,11 @@
    echo "         |--------|" ."\n";
  }
  $rubik=getOrderedRubik();
- 
+ /*
  for ($j=0;$j<6;$j++){
    $rubik=sexyMove($rubik);
  }
- 
- //$rubik=moveRPrime($rubik);
+ */
+ $rubik=moveU($rubik);
  format($rubik);
  // var_dump($rubik);
