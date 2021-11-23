@@ -6,35 +6,36 @@
  $magenta="\e[95m"; 
  $white="\e[97m";
  function getOrderedRubik(){
-  global $red, $green, $yellow, $blue, $magenta, $white;
-  $rubik = array();
-  $sides = array('U','B','R','D','L','F');
-  foreach ($sides as $side){
-   for ($i = 1;$i<10;$i++){ 
-    $rubik[$side.$i]['v'] = $side.$i;
-    switch ($side){
-      case 'U':
-         $rubik[$side.$i]['c'] =  $yellow;
-         break;
-      case 'B':
-         $rubik[$side.$i]['c'] =  $magenta;
-         break;
-      case 'R':
-         $rubik[$side.$i]['c'] =  $green;
-         break;
-      case 'D':
-         $rubik[$side.$i]['c'] =  $white;
-         break;
-      case 'L':
-         $rubik[$side.$i]['c'] =  $blue;
-         break;
-      case 'F':
-         $rubik[$side.$i]['c'] =  $red;
-         break;
-    }
+   /* WITH TEST */
+   global $red, $green, $yellow, $blue, $magenta, $white;
+   $rubik = array();
+   $sides = array('U','B','R','D','L','F');
+   foreach ($sides as $side){
+      for ($i = 1;$i<10;$i++){ 
+         $rubik[$side.$i]['v'] = $side.$i;
+         switch ($side){
+         case 'U':
+            $rubik[$side.$i]['c'] =  $yellow;
+            break;
+         case 'B':
+            $rubik[$side.$i]['c'] =  $magenta;
+            break;
+         case 'R':
+            $rubik[$side.$i]['c'] =  $green;
+            break;
+         case 'D':
+            $rubik[$side.$i]['c'] =  $white;
+            break;
+         case 'L':
+            $rubik[$side.$i]['c'] =  $blue;
+            break;
+         case 'F':
+            $rubik[$side.$i]['c'] =  $red;
+            break;
+         }
+      }
    }
-  }
-  return $rubik;
+   return $rubik;
  }
  function rubikMove($rubik, $posA,$posN){
    $tempRubik = $rubik;
@@ -47,6 +48,7 @@
     return $rubik;
  }
  function moveU($rubik){
+    /* WITH TEST */
     // Rotate A Side
    $posToChange = array (
       'U1','U2','U3','U6','U9','U8','U7','U4',
@@ -62,6 +64,7 @@
    return $rubik;
  }
  function moveUPrime($rubik){
+   /* WITH TEST */
    // Rotate A Side in reverse
    $posToChange = array (
       'U1','U2','U3','U6','U9','U8','U7','U4',
@@ -77,6 +80,7 @@
    return $rubik;
  }
  function moveR($rubik){
+   /* WITH TEST */
    // Rotate R Side
    $posToChange = array (
       'R1','R2','R3','R6','R9','R7','R8','R4',
@@ -92,6 +96,7 @@
    return $rubik;
  }
  function moveRPrime($rubik){
+   /* WITH TEST */
    // Rotate R Side in reverse
    $posToChange = array (
       'R1','R2','R3','R6','R9','R8','R7','R4',
@@ -107,6 +112,7 @@
    return $rubik;
  }
  function moveL($rubik){
+   /* WITH TEST */
    // Rotate L Side
    $posToChange = array (
       'L1','L2','L3','L6','L9','L7','L8','L4',
@@ -122,6 +128,7 @@
    return $rubik;
  }
  function moveLPrime($rubik){
+   /* WITH TEST */
    // Rotate L Side in reverse
    $posToChange = array (
       'L1','L2','L3','L6','L9','L8','L7','L4',
@@ -138,6 +145,7 @@
    return $rubik;
  }
  function moveF($rubik){
+   /* WITH TEST */
    // Rotate F Side
    $posToChange = array (
       'F1','F2','F3','F6','F9','F7','F8','F4',
@@ -153,6 +161,7 @@
    return $rubik;
  }
  function moveFPrime($rubik){
+   /* WITH TEST */
    // Rotate F Side in reverse
    $posToChange = array (
       'F1','F2','F3','F6','F9','F8','F7','F4',
@@ -168,6 +177,7 @@
    return $rubik;
  }
  function moveB($rubik){
+   /* WITH TEST */
    // Rotate B Side
    $posToChange = array (
       'B1','B2','B3','B6','B9','B8','B7','B4',
@@ -183,6 +193,7 @@
    return $rubik;
  }
  function moveBPrime($rubik){
+   /* WITH TEST */
    // Rotate B Side
    $posToChange = array (
       'B1','B2','B3','B6','B9','B8','B7','B4',
@@ -238,6 +249,6 @@
    $rubik=sexyMove($rubik);
  }
  */
- $rubik=moveU($rubik);
+ $rubik=moveBPrime($rubik);
  format($rubik);
  // var_dump($rubik);
