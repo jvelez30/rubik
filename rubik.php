@@ -241,6 +241,7 @@
    return $rubik;
  }
  function sexyMove($rubik){
+   /* WITH TEST */
    $rubik=moveR($rubik);
    $rubik=moveU($rubik);
    $rubik=moveRP($rubik);
@@ -276,11 +277,11 @@
    echo "         |--------|" ."\n";
  }
  $rubik=getOrderedRubik();
- /*
- for ($j=0;$j<6;$j++){
+ 
+ //for ($j=0;$j<6;$j++){
    $rubik=sexyMove($rubik);
- }
- */
- $rubik=moveDP($rubik);
+ //}
+ 
+ //$rubik=moveDP($rubik);
  format($rubik);
  // var_dump($rubik);

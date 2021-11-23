@@ -78,4 +78,14 @@ $rubik=moveDP($rubik);
 echo $blue."moveDP\n".$white;
 assertMoveDPRubik($rubik);
 $rubik=moveD($rubik);
+// Test sexy move function
+$rubik=sexyMove($rubik);
+echo $blue."sexyMove\n".$white;
+assertSexyMoveRubik($rubik);
+// 5 more sexy moves then cube is ordered
+for ($j=0;$j<5;$j++){
+  $rubik=sexyMove($rubik);
+}
+echo $blue."5 more sexyMoves\n".$white;
+assertOrderedRubik($rubik);
 format($rubik);

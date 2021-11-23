@@ -222,3 +222,19 @@ $moveDPColors = array (
   $white,$white,$white,$white,$white,$white,$white,$white,$white,
   $red,$red,$red,$red,$red,$red,$green,$green,$green
 );
+$sexyMoveValues = array (
+  'B1','B2','B3','B4','B5','B6','R1','R4','B7',
+  'L1','L2','B9','L4','L5','L6','L7','L8','L9',
+  'U3','U6','L3','U4','U5','F6','U7','U8','F9',
+  'U1','R2','R3','R8','R5','R6','R9','B8','U9',
+  'D1','D2','D3','D4','D5','D6','R7','D8','D9',
+  'F1','F2','D7','F4','F5','U2','F7','F8','F3'
+);
+$sexyMoveColors = array (
+  $magenta,$magenta,$magenta,$magenta,$magenta,$magenta,$green,$green,$magenta,
+  $blue,$blue,$magenta,$blue,$blue,$blue,$blue,$blue,$blue,
+  $yellow,$yellow,$blue,$yellow,$yellow,$red,$yellow,$yellow,$red,
+  $yellow,$green,$green,$green,$green,$green,$green,$magenta,$yellow,
+  $white,$white,$white,$white,$white,$white,$green,$white,$white,
+  $red,$red,$white,$red,$red,$yellow,$red,$red,$red
+);

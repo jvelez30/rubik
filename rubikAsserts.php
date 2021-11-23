@@ -222,3 +222,20 @@ function assertMoveDPRubik($rubik){
     echo "assertMoveDPRubik\n".$red."Assert False\n".$white;
   }
 }
+function assertSexyMoveRubik($rubik){
+  global $red, $green, $yellow, $blue, $magenta, $white;
+  global $positions, $sexyMoveValues, $sexyMoveColors;
+  $assert = true;
+  for ($i = 0;$i < count($positions);$i++){
+    $pos = $positions[$i];
+    if ($rubik[$pos]['v'] !== $sexyMoveValues[$i] || 
+      $rubik[$pos]['c'] !== $sexyMoveColors[$i]){
+      $assert = false;
+    }
+  }
+  if ($assert){
+    echo "assertSexyMoveRubik\n".$green."Assert True\n".$white;
+  } else {
+    echo "assertSexyMoveRubik\n".$red."Assert False\n".$white;
+  }
+}
