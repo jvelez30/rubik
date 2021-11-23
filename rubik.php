@@ -63,7 +63,7 @@
    $rubik = rubikMove($rubik, $posToChange, $posNewVal);
    return $rubik;
  }
- function moveUPrime($rubik){
+ function moveUP($rubik){
    /* WITH TEST */
    // Rotate A Side in reverse
    $posToChange = array (
@@ -244,7 +244,7 @@
    $rubik=moveR($rubik);
    $rubik=moveU($rubik);
    $rubik=moveRPrime($rubik);
-   $rubik=moveUPrime($rubik);
+   $rubik=moveUP($rubik);
    return $rubik;
  }
  function printPos($rubik,$pos){

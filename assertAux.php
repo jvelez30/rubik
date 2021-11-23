@@ -46,7 +46,7 @@ $moveUColors = array (
   $white,$white,$white,$white,$white,$white,$white,$white,$white,
   $green,$green,$green,$red,$red,$red,$red,$red,$red
 );
-$moveUPrimeValues = array (
+$moveUPValues = array (
   'B1','B2','B3','B4','B5','B6','R1','R4','R7',
   'L1','L2','B9','L4','L5','B8','L7','L8','B7',
   'U3','U6','U9','U2','U5','U8','U1','U4','U7',
@@ -54,7 +54,7 @@ $moveUPrimeValues = array (
   'D1','D2','D3','D4','D5','D6','D7','D8','D9',
   'L3','L6','L9','F4','F5','F6','F7','F8','F9'
 );
-$moveUPrimeColors = array (
+$moveUPColors = array (
   $magenta,$magenta,$magenta,$magenta,$magenta,$magenta,$green,$green,$green,
   $blue,$blue,$magenta,$blue,$blue,$magenta,$blue,$blue,$magenta,
   $yellow,$yellow,$yellow,$yellow,$yellow,$yellow,$yellow,$yellow,$yellow,

@@ -35,21 +35,21 @@ function assertMoveURubik($rubik){
     echo "assertMoveURubik\n".$red."Assert False\n".$white;
   }
 }
-function assertMoveUPrimeRubik($rubik){
+function assertmoveUPRubik($rubik){
   global $red, $green, $yellow, $blue, $magenta, $white;
-  global $positions, $moveUPrimeValues, $moveUPrimeColors;
+  global $positions, $moveUPValues, $moveUPColors;
   $assert = true;
   for ($i = 0;$i < count($positions);$i++){
     $pos = $positions[$i];
-    if ($rubik[$pos]['v'] !== $moveUPrimeValues[$i] || 
-      $rubik[$pos]['c'] !== $moveUPrimeColors[$i]){
+    if ($rubik[$pos]['v'] !== $moveUPValues[$i] || 
+      $rubik[$pos]['c'] !== $moveUPColors[$i]){
       $assert = false;
     }
   }
   if ($assert){
-    echo "assertMoveUPrimeRubik\n".$green."Assert True\n".$white;
+    echo "assertmoveUPRubik\n".$green."Assert True\n".$white;
   } else {
-    echo "assertMoveUPrimeRubik\n".$red."Assert False\n".$white;
+    echo "assertmoveUPRubik\n".$red."Assert False\n".$white;
   }
 }
 function assertMoveRRubik($rubik){
