@@ -252,7 +252,7 @@
    global $red, $green, $yellow, $blue, $magenta, $white;
     return $rubik[$pos]['c'].$rubik[$pos]['v'].$white;
  }
- function format($rubik){
+ function formatCli($rubik){
    echo "         |--------|" ."\n";
    echo "         |" . printPos($rubik,'B1') . "-" . printPos($rubik,'B2') . "-" . printPos($rubik,'B3') . "|" ."\n";
    echo "         |" . printPos($rubik,'B4') . "-" . printPos($rubik,'B5') . "-" . printPos($rubik,'B6') . "|" ."\n";
@@ -276,12 +276,72 @@
    echo "         |" . printPos($rubik,'F7') . "-" . printPos($rubik,'F8') . "-" . printPos($rubik,'F9') . "|" ."\n";
    echo "         |--------|" ."\n";
  }
+ function printPosHtml($rubik,$pos){
+   global $red, $green, $yellow, $blue, $magenta, $white;
+   return '<span style="background-color: '.translateColorToHtml($rubik[$pos]['c']).'">'.$rubik[$pos]['v'].'</span>';
+ }
+ function formatHtml($rubik){
+   echo "<table>";
+   echo " <tr><td></td><td>" . printPosHtml($rubik,'B1') . "-" . printPosHtml($rubik,'B2') . "-" . printPosHtml($rubik,'B3') . "</td></tr>";
+   echo " <tr><td></td><td>" . printPosHtml($rubik,'B4') . "-" . printPosHtml($rubik,'B5') . "-" . printPosHtml($rubik,'B6') . "</td></tr>";
+   echo " <tr><td></td><td>" . printPosHtml($rubik,'B7') . "-" . printPosHtml($rubik,'B8') . "-" . printPosHtml($rubik,'B9') . "</td></tr>";
+   echo " <tr><td>" . printPosHtml($rubik,'L1') . "-" . printPosHtml($rubik,'L2') . "-" . printPosHtml($rubik,'L3') . "</td>";
+   echo "     <td>" . printPosHtml($rubik,'U1') . "-" . printPosHtml($rubik,'U2') . "-" . printPosHtml($rubik,'U3') . "</td>";
+   echo "     <td>" . printPosHtml($rubik,'R1') . "-" . printPosHtml($rubik,'R2') . "-" . printPosHtml($rubik,'R3') . "</td>";
+   echo "     <td>" . printPosHtml($rubik,'D1') . "-" . printPosHtml($rubik,'D2') . "-" . printPosHtml($rubik,'D3') . "</td></tr>";
+   echo " <tr><td>" . printPosHtml($rubik,'L4') . "-" . printPosHtml($rubik,'L5') . "-" . printPosHtml($rubik,'L6') . "</td>";
+   echo "     <td>" . printPosHtml($rubik,'U4') . "-" . printPosHtml($rubik,'U5') . "-" . printPosHtml($rubik,'U6') . "</td>";
+   echo "     <td>" . printPosHtml($rubik,'R4') . "-" . printPosHtml($rubik,'R5') . "-" . printPosHtml($rubik,'R6') . "</td>";
+   echo "     <td>" . printPosHtml($rubik,'D4') . "-" . printPosHtml($rubik,'D5') . "-" . printPosHtml($rubik,'D6') . "</td></tr>";
+   echo " <tr><td>" . printPosHtml($rubik,'L7') . "-" . printPosHtml($rubik,'L8') . "-" . printPosHtml($rubik,'L9') . "</td>";
+   echo "     <td>" . printPosHtml($rubik,'U7') . "-" . printPosHtml($rubik,'U8') . "-" . printPosHtml($rubik,'U9') . "</td>";
+   echo "     <td>" . printPosHtml($rubik,'R7') . "-" . printPosHtml($rubik,'R8') . "-" . printPosHtml($rubik,'R9') . "</td>";
+   echo "     <td>" . printPosHtml($rubik,'D7') . "-" . printPosHtml($rubik,'D8') . "-" . printPosHtml($rubik,'D9') . "</td></tr>";
+   echo " <tr><td></td><td>" . printPosHtml($rubik,'F1') . "-" . printPosHtml($rubik,'F2') . "-" . printPosHtml($rubik,'F3') . "</td></tr>";
+   echo " <tr><td></td><td>" . printPosHtml($rubik,'F4') . "-" . printPosHtml($rubik,'F5') . "-" . printPosHtml($rubik,'F6') . "</td></tr>";
+   echo " <tr><td></td><td>" . printPosHtml($rubik,'F7') . "-" . printPosHtml($rubik,'F8') . "-" . printPosHtml($rubik,'F9') . "</td></tr>";
+   echo "</table>";
+ }
+ function translateColorToHtml($color){
+   global $red, $green, $yellow, $blue, $magenta, $white;
+   switch ($color){
+      case $red:
+         return "red";
+         break;
+      case $green:
+         return "lightgreen";
+         break;
+      case $yellow:
+         return "yellow";
+         break;
+      case $blue:
+         return "lightblue";
+         break;
+      case $magenta:
+         return "magenta";
+         break;
+      case $white:
+         return "white";
+         break;
+   }
+ }
  $rubik=getOrderedRubik();
  
- //for ($j=0;$j<6;$j++){
+ for ($j=0;$j<6;$j++){
    $rubik=sexyMove($rubik);
- //}
+ }
  
  //$rubik=moveDP($rubik);
- format($rubik);
+
+ if (isset($argv[0])){
+   // if command line cli format is displayed
+   formatCli($rubik);
+ } else {
+   // else html format is displayed
+   formatHtml($rubik);
+ }
+
+ 
+
  // var_dump($rubik);
+ 

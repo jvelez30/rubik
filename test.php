@@ -88,4 +88,4 @@ for ($j=0;$j<5;$j++){
 }
 echo $blue."5 more sexyMoves\n".$white;
 assertOrderedRubik($rubik);
-format($rubik);
+formatCli($rubik);
