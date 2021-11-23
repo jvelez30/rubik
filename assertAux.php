@@ -190,3 +190,35 @@ $moveBPrimeColors = array (
   $green,$green,$green,$white,$white,$white,$white,$white,$white,
   $red,$red,$red,$red,$red,$red,$red,$red,$red
 );
+$moveDValues = array (
+  'R3','R6','R9','B4','B5','B6','B7','B8','B9',
+  'B3','L2','L3','B2','L5','L6','B1','L8','L9',
+  'U1','U2','U3','U4','U5','U6','U7','U8','U9',
+  'R1','R2','F9','R4','R5','F8','R7','R8','F7',
+  'D7','D4','D1','D8','D5','D2','D9','D6','D3',
+  'F1','F2','F3','F4','F5','F6','L1','L4','L7'
+);
+$moveDColors = array (
+  $green,$green,$green,$magenta,$magenta,$magenta,$magenta,$magenta,$magenta,
+  $magenta,$blue,$blue,$magenta,$blue,$blue,$magenta,$blue,$blue,
+  $yellow,$yellow,$yellow,$yellow,$yellow,$yellow,$yellow,$yellow,$yellow,
+  $green,$green,$red,$green,$green,$red,$green,$green,$red,
+  $white,$white,$white,$white,$white,$white,$white,$white,$white,
+  $red,$red,$red,$red,$red,$red,$blue,$blue,$blue
+);
+$moveDPrimeValues = array (
+  'L7','L4','L1','B4','B5','B6','B7','B8','B9',
+  'F7','L2','L3','F8','L5','L6','F9','L8','L9',
+  'U1','U2','U3','U4','U5','U6','U7','U8','U9',
+  'R1','R2','B1','R4','R5','B2','R7','R8','B3',
+  'D3','D6','D9','D2','D5','D8','D1','D4','D7',
+  'F1','F2','F3','F4','F5','F6','R9','R6','R3'
+);
+$moveDPrimeColors = array (
+  $blue,$blue,$blue,$magenta,$magenta,$magenta,$magenta,$magenta,$magenta,
+  $red,$blue,$blue,$red,$blue,$blue,$red,$blue,$blue,
+  $yellow,$yellow,$yellow,$yellow,$yellow,$yellow,$yellow,$yellow,$yellow,
+  $green,$green,$magenta,$green,$green,$magenta,$green,$green,$magenta,
+  $white,$white,$white,$white,$white,$white,$white,$white,$white,
+  $red,$red,$red,$red,$red,$red,$green,$green,$green
+);

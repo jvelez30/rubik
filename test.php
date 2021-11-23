@@ -66,4 +66,16 @@ $rubik=MoveBPrime($rubik);
 echo $blue."MoveBPrime\n".$white;
 assertMoveBPrimeRubik($rubik);
 $rubik=MoveB($rubik);
+// Test MoveD function
+$rubik=MoveD($rubik);
+echo $blue."MoveD\n".$white;
+assertMoveDRubik($rubik);
+// Test MoveDPrime function
+$rubik=MoveDPrime($rubik);
+echo $blue."MoveDPrime\n".$white;
+assertOrderedRubik($rubik);
+$rubik=MoveDPrime($rubik);
+echo $blue."MoveDPrime\n".$white;
+assertMoveDPrimeRubik($rubik);
+$rubik=MoveD($rubik);
 format($rubik);

@@ -188,3 +188,37 @@ function assertMoveBPrimeRubik($rubik){
     echo "assertMoveBPrimeRubik\n".$red."Assert False\n".$white;
   }
 }
+function assertMoveDRubik($rubik){
+  global $red, $green, $yellow, $blue, $magenta, $white;
+  global $positions, $moveDValues, $moveDColors;
+  $assert = true;
+  for ($i = 0;$i < count($positions);$i++){
+    $pos = $positions[$i];
+    if ($rubik[$pos]['v'] !== $moveDValues[$i] || 
+      $rubik[$pos]['c'] !== $moveDColors[$i]){
+      $assert = false;
+    }
+  }
+  if ($assert){
+    echo "assertMoveDRubik\n".$green."Assert True\n".$white;
+  } else {
+    echo "assertMoveDRubik\n".$red."Assert False\n".$white;
+  }
+}
+function assertMoveDPrimeRubik($rubik){
+  global $red, $green, $yellow, $blue, $magenta, $white;
+  global $positions, $moveDPrimeValues, $moveDPrimeColors;
+  $assert = true;
+  for ($i = 0;$i < count($positions);$i++){
+    $pos = $positions[$i];
+    if ($rubik[$pos]['v'] !== $moveDPrimeValues[$i] || 
+      $rubik[$pos]['c'] !== $moveDPrimeColors[$i]){
+      $assert = false;
+    }
+  }
+  if ($assert){
+    echo "assertMoveDPrimeRubik\n".$green."Assert True\n".$white;
+  } else {
+    echo "assertMoveDPrimeRubik\n".$red."Assert False\n".$white;
+  }
+}
