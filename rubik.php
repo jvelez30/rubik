@@ -318,7 +318,7 @@
          return "lightblue";
          break;
       case $magenta:
-         return "magenta";
+         return "orange";
          break;
       case $white:
          return "white";
@@ -332,45 +332,47 @@
    $rubik=sexyMove($rubik);
  }
  */
+ // Filter get var
+ $movesParam = filter_input(INPUT_GET, 'm', FILTER_SANITIZE_STRING);
  // If moves are setted via string query
- if(isset($_GET['m'])){
-   $moves = explode('|',$_GET['m']);
+ if(isset($movesParam)){
+   $moves = str_split($movesParam);
    foreach ($moves as $move){
       switch ($move){
          case 'U':
             $rubik=moveU($rubik);
             break;
-         case 'UP':
+         case 'u':
             $rubik=moveUP($rubik);
             break;
          case 'R':
             $rubik=moveR($rubik);
             break;
-         case 'RP':
+         case 'r':
             $rubik=moveRP($rubik);
             break;
          case 'L':
             $rubik=moveL($rubik);
             break;
-         case 'LP':
+         case 'l':
             $rubik=moveLP($rubik);
             break;
          case 'F':
             $rubik=moveF($rubik);
             break;
-         case 'FP':
+         case 'f':
             $rubik=moveFP($rubik);
             break;
          case 'B':
             $rubik=moveB($rubik);
             break;
-         case 'BP':
+         case 'b':
             $rubik=moveBP($rubik);
             break; 
          case 'D':
             $rubik=moveD($rubik);
             break;
-         case 'DP':
+         case 'd':
             $rubik=moveDP($rubik);
             break;     
       }
