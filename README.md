@@ -24,7 +24,7 @@ b = Back prime
 D = Down
 d = Down prime
 
-# Moves get param
+# Param for moves
 
 Use query string parameter m as follow
 
