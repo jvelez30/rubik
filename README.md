@@ -1,5 +1,6 @@
 # Php Rubik
-# Run in Terminal: It just show ordered 3x3 colored rubik cube (magenta instead orange)
+
+# Run in Terminal: It just shows ordered 3x3 colored rubik cube (magenta instead orange)
 
 php rubik.php
 
@@ -32,7 +33,7 @@ http://127.0.0.1:4500/rubik.php?m=U
 
 This show rubik ordered plus U move
 
-http://127.0.0.1:4500/rubik.php?m=RUrp
+http://127.0.0.1:4500/rubik.php?m=RUru
 
 This shows the rubik ordered after sexy move
 
