@@ -1,6 +1,7 @@
-# Rubik code in 2 languages
+# Rubik code in 3 languages
 
 # languages
 
-* Php
-* Javascript
+* Php (Test Pass)
+* Javascript (Test Fail)
+* Python (Test None)

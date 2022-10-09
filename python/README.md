@@ -1,18 +1,24 @@
 # Python Rubik
 
-# Run in Terminal: It just shows ordered 3x3 colored rubik cube (magenta instead orange)
+# Run in Terminal
+
+It just shows ordered 3x3 colored rubik cube (magenta instead orange)
 
 python3 rubik.py
 
-# Run in web
+# Run in web (this is not working well yet)
 
- python3 -m http.server 4700
+python3 -m http.server 4700
 
 http://127.0.0.1:4700
+
+TODO: use some web framework like flask in order this run on the web
 
 # Run in docker
 
 docker run --name rubikpy -it --rm -v ${PWD}:/workdir python /bin/bash
+cd /working/python
+python3 rubik.py
 
 # Moves
 
@@ -29,21 +35,21 @@ b = Back prime
 D = Down
 d = Down prime
 
-# Param for moves
+# Param for moves (this is not working yet)
 
 Use query string parameter m as follow
 
-http://127.0.0.1:4500/rubik.php?m=U
+http://127.0.0.1:4700/rubik.py?m=U
 
 This show rubik ordered plus U move
 
-http://127.0.0.1:4500/rubik.php?m=RUru
+http://127.0.0.1:4700/rubik.py?m=RUru
 
 This shows the rubik ordered after sexy move
 
-# Testing
+# Testing (this is not working yet)
 
-php test.php
-
-This tries every single move starting from ordered cube
+This test tries every single move starting from ordered cube
 Finally the test tries sexyMove
+
+python3 test.py

@@ -1,6 +1,8 @@
 # Php Rubik
 
-# Run in Terminal: It just shows ordered 3x3 colored rubik cube (magenta instead orange)
+# Run in Terminal 
+
+It just shows ordered 3x3 colored rubik cube (magenta instead orange)
 
 php rubik.php
 
@@ -13,6 +15,8 @@ http://127.0.0.1:4500/rubik.php
 # Run in docker
 
 docker run --name rubikphp -it --rm -v ${PWD}:/workdir php /bin/bash
+cd /working/php
+php rubik.php
 
 # Moves
 
@@ -43,7 +47,13 @@ This shows the rubik ordered after sexy move
 
 # Testing
 
-php test.php
-
-This tries every single move starting from ordered cube
+This test tries every single move starting from ordered cube
 Finally the test tries sexyMove
+
+```bash
+php test.php
+```
+
+Note: Actual test were made manually
+TODO: create phpunit standard test
+
