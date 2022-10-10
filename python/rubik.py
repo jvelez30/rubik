@@ -1,3 +1,5 @@
+import copy
+
 red = "\x1b[31m"
 green = "\x1b[32m"
 yellow = "\x1b[33m"
@@ -30,7 +32,7 @@ def getOrderedRubik():
                     rubikColors[index] = red
     rubik = [rubikValues,rubikColors]
     return rubik
-import copy
+
 def rubikMove(rubik, posA, posN):
     tempRubik = copy.deepcopy(rubik)
     for i in range (0, len(posA)):
@@ -210,66 +212,69 @@ def formatHtml(rubik):
 #             return "orange"
 #         case white:
 #             return "white" 
+def main():
+    rubik = getOrderedRubik()
+    # print(rubik)
 
-rubik = getOrderedRubik()
-# print(rubik)
-
-# for j in range (0,6):
-#    rubik=sexyMove(rubik)
+    # for j in range (0,6):
+    #    rubik=sexyMove(rubik)
 
 
-# Filter get var
-# movesParam = filter_input(1, 'm', 513);
-# // If moves are setted via string query
-# if (typeof movesParam !== 'undefined') {
-#     moves = str_split(movesParam);
-#     moves.foreach(move => {
-#         switch (move) {
-#             case 'U':
-#                 rubik = moveU(rubik);
-#                 break;
-#             case 'u':
-#                 rubik = moveUP(rubik);
-#                 break;
-#             case 'R':
-#                 rubik = moveR(rubik);
-#                 break;
-#             case 'r':
-#                 rubik = moveRP(rubik);
-#                 break;
-#             case 'L':
-#                 rubik = moveL(rubik);
-#                 break;
-#             case 'l':
-#                 rubik = moveLP(rubik);
-#                 break;
-#             case 'F':
-#                 rubik = moveF(rubik);
-#                 break;
-#             case 'f':
-#                 rubik = moveFP(rubik);
-#                 break;
-#             case 'B':
-#                 rubik = moveB(rubik);
-#                 break;
-#             case 'b':
-#                 rubik = moveBP(rubik);
-#                 break;
-#             case 'D':
-#                 rubik = moveD(rubik);
-#                 break;
-#             case 'd':
-#                 rubik = moveDP(rubik);
-#                 break;
-#         
-#     )
-# 
-rubik=moveDP(rubik)
-#if typeof argv[0] is not 'undefined') {
-    # if command line cli format is displayed
-formatCli(rubik)
-# else {
-    # else html format is displayed
-#    formatHtml(rubik);
+    # Filter get var
+    # movesParam = filter_input(1, 'm', 513);
+    # // If moves are setted via string query
+    # if (typeof movesParam !== 'undefined') {
+    #     moves = str_split(movesParam);
+    #     moves.foreach(move => {
+    #         switch (move) {
+    #             case 'U':
+    #                 rubik = moveU(rubik);
+    #                 break;
+    #             case 'u':
+    #                 rubik = moveUP(rubik);
+    #                 break;
+    #             case 'R':
+    #                 rubik = moveR(rubik);
+    #                 break;
+    #             case 'r':
+    #                 rubik = moveRP(rubik);
+    #                 break;
+    #             case 'L':
+    #                 rubik = moveL(rubik);
+    #                 break;
+    #             case 'l':
+    #                 rubik = moveLP(rubik);
+    #                 break;
+    #             case 'F':
+    #                 rubik = moveF(rubik);
+    #                 break;
+    #             case 'f':
+    #                 rubik = moveFP(rubik);
+    #                 break;
+    #             case 'B':
+    #                 rubik = moveB(rubik);
+    #                 break;
+    #             case 'b':
+    #                 rubik = moveBP(rubik);
+    #                 break;
+    #             case 'D':
+    #                 rubik = moveD(rubik);
+    #                 break;
+    #             case 'd':
+    #                 rubik = moveDP(rubik);
+    #                 break;
+    #         
+    #     )
+    # 
+    rubik=moveDP(rubik)
+    #if typeof argv[0] is not 'undefined') {
+        # if command line cli format is displayed
+    formatCli(rubik)
+    # else {
+        # else html format is displayed
+    #    formatHtml(rubik);
 
-# var_dump($rubik);
+    # var_dump($rubik);
+
+if __name__ == "__main__":
+    main()
