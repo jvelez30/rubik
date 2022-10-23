@@ -2,7 +2,7 @@
 
 # Compile go file in docker
 
-docker run -it --rm -v "$PWD"/go/:/go/ -w ./go/ -w /go/ golang:1.19
+docker run --name rubikgo -it --rm -v "$PWD"/go/:/go/ -w /go/src/example/rubik/ golang:1.19
 unset GOPATH
 go build rubik.go
 ./rubik
@@ -52,15 +52,15 @@ http://127.0.0.1:4500/rubik.go?m=RUru
 
 This shows the rubik ordered after sexy move
 
-# Testing (this is not set yet)
+# Testing
 
 This test tries every single move starting from ordered cube
 Finally the test tries sexyMove
 
 ```bash
-go test.go
+go run test.go
 ```
 
-Note: Actual test were made manually
+Note: Actual test were made manually and whole code in a single file
 TODO: create gounit standard test
 

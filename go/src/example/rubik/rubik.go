@@ -756,11 +756,11 @@ func translateColorForCli(color string) string {
 
 func main() {
     rubik := getOrderedRubik()
-    //rubik = moveDP(rubik)
+    rubik = moveDP(rubik)
     //fmt.Println(rubik)
-    for j :=0; j<6; j++ {
-        rubik = sexyMove(rubik);
-    }
+    //for j :=0; j<6; j++ {
+    //    rubik = sexyMove(rubik);
+    //}
 
     //if isset(argv[0]) /* cannot convert */ {
         // if command line cli format is displayed
