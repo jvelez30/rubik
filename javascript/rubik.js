@@ -1,4 +1,3 @@
-//import loadash from 'lodash';
 
 var red = "\x1b[31m";
 var green = "\x1b[32m";
@@ -42,11 +41,17 @@ function getOrderedRubik()
     var rubik = Array(rubikValues,rubikColors)
     return rubik;
 }
+function copyRubik(rubik){
+    var newRubik = Array(Array(),Array());
+    for (var i= 0; i < rubik[0].length; i++) {
+        newRubik[0][i] = rubik[0][i]
+        newRubik[1][i] = rubik[1][i]
+    }
+    return newRubik
+}
 function rubikMove(rubik, posA, posN)
 {
-    let tempRubik = rubik;
-    // var tempRubik = loadash.cloneDeep(rubik);
-    console.log(tempRubik)
+    var tempRubik = copyRubik(rubik);
     for (var i = 0; i < posA.length; i++) {
         var posActual = posA[i];
         var posNew = posN[i];
@@ -59,37 +64,41 @@ function moveU(rubik)
 {
     /* WITH TEST */
     // Rotate A Side
+    var movedRubik = copyRubik(rubik);
     var posToChange = ['U1','U2','U3','U6','U9','U8','U7','U4','R1','R4','R7','F1','F2','F3','L3','L6','L9','B7','B8','B9'];
     var posNewVal = ['U7','U4','U1','U2','U3','U6','U9','U8','B7','B8','B9','R7','R4','R1','F1','F2','F3','L9','L6','L3'];
-    rubik = rubikMove(rubik, posToChange, posNewVal);
-    return rubik;
+    movedRubik = rubikMove(movedRubik, posToChange, posNewVal);
+    return movedRubik;
 }
 function moveUP(rubik)
 {
     /* WITH TEST */
     // Rotate A Side in reverse
+    var movedRubik = copyRubik(rubik);
     var posToChange = ['U1','U2','U3','U6','U9','U8','U7','U4','R1','R4','R7','F1','F2','F3','L3','L6','L9','B7','B8','B9'];
     var posNewVal = ['U3','U6','U9','U8','U7','U4','U1','U2','F3','F2','F1','L3','L6','L9','B9','B8','B7','R1','R4','R7'];
-    rubik = rubikMove(rubik, posToChange, posNewVal);
-    return rubik;
+    movedRubik = rubikMove(movedRubik, posToChange, posNewVal);
+    return movedRubik;
 }
 function moveR(rubik)
 {
     /* WITH TEST */
     // Rotate R Side
+    var movedRubik = copyRubik(rubik);
     var posToChange = ['R1','R2','R3','R6','R9','R7','R8','R4','B3','B6','B9','D7','D4','D1','F3','F6','F9','U3','U6','U9'];
     var posNewVal = ['R7','R4','R1','R2','R3','R9','R6','R8','U3','U6','U9','B3','B6','B9','D7','D4','D1','F3','F6','F9'];
-    rubik = rubikMove(rubik, posToChange, posNewVal);
-    return rubik;
+    movedRubik = rubikMove(movedRubik, posToChange, posNewVal);
+    return movedRubik;
 }
 function moveRP(rubik)
 {
     /* WITH TEST */
     // Rotate R Side in reverse
+    var movedRubik = copyRubik(rubik);
     var posToChange = ['R1','R2','R3','R6','R9','R8','R7','R4','B3','B6','B9','D7','D4','D1','F3','F6','F9','U3','U6','U9'];
     var posNewVal = ['R3','R6','R9','R8','R7','R4','R1','R2','D7','D4','D1','F3','F6','F9','U3','U6','U9','B3','B6','B9'];
-    rubik = rubikMove(rubik, posToChange, posNewVal);
-    return rubik;
+    movedRubik = rubikMove(movedRubik, posToChange, posNewVal);
+    return movedRubik;
 }
 function moveL(rubik)
 {
@@ -163,14 +172,14 @@ function moveDP(rubik)
     rubik = rubikMove(rubik, posToChange, posNewVal);
     return rubik;
 }
-function sexyMove(rubik)
+function sexyMove(sexyRubik)
 {
     /* WITH TEST */
-    rubik = moveR(rubik);
-    rubik = moveU(rubik);
-    rubik = moveRP(rubik);
-    rubik = moveUP(rubik);
-    return rubik;
+    sexyRubik = moveR(sexyRubik);
+    sexyRubik = moveU(sexyRubik);
+    sexyRubik = moveRP(sexyRubik);
+    sexyRubik = moveUP(sexyRubik);
+    return sexyRubik;
 }
 function printPos(rubik, pos)
 {
@@ -255,12 +264,12 @@ function translateColorToHtml(color)
     }
 }
 var rubik = getOrderedRubik();
-console.log(rubik);
-/*
-for ($j=0;$j<6;$j++){
-  $rubik=sexyMove($rubik);
-}
-*/
+
+//for (var k=0; k<6; k++) {
+//  rubik=sexyMove(rubik);
+//}
+//formatCli(rubik);
+
 // Filter get var
 // movesParam = filter_input(1, 'm', 513);
 // // If moves are setted via string query
@@ -307,11 +316,17 @@ for ($j=0;$j<6;$j++){
 //         }
 //     })
 // }
-formatCli(rubik);
-rubik=moveDP(rubik);
+//rubik=moveDP(rubik);
+var rubik2 = copyRubik(rubik);
+rubik2 = moveR(rubik2);
+var rubik3 = copyRubik(rubik2)
+rubik3 = moveU(rubik3);
+//rubik = moveRP(rubik);
+//rubik = moveUP(rubik);
+
 //if (typeof argv[0] !== 'undefined') {
     // if command line cli format is displayed
-    formatCli(rubik);
+    formatCli(rubik3);
 //} else {
     // else html format is displayed
 //    formatHtml(rubik);
