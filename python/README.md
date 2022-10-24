@@ -16,8 +16,7 @@ TODO: use some web framework like flask in order this run on the web
 
 # Run in docker
 
-docker run --name rubikpy -it --rm -v ${PWD}:/workdir python /bin/bash
-cd /working/python
+docker run --name rubikpy -it --rm -v ${PWD}/python/:/workdir -w /workdir python /bin/bash
 python3 rubik.py
 
 # Moves
@@ -47,9 +46,11 @@ http://127.0.0.1:4700/rubik.py?m=RUru
 
 This shows the rubik ordered after sexy move
 
-# Testing (this is not working yet)
+# Testing
 
 This test tries every single move starting from ordered cube
 Finally the test tries sexyMove
 
 python3 test.py
+
+Note: no standard python test library is used
