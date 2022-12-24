@@ -1,4 +1,6 @@
 <?php
+ /* Rubik Asserts */
+ require_once("assertAux.php");
  $red="\e[31m";
  $green="\e[32m"; 
  $yellow="\e[33m"; 
@@ -6,6 +8,20 @@
  $magenta="\e[95m"; 
  $white="\e[97m";
  
+ function isOrderedRubik($rubik){
+   global $red, $green, $yellow, $blue, $magenta, $white;
+   global $positions, $orderedValues, $orderedColors;
+   $assert = true;
+   for ($i = 0;$i < count($positions);$i++){
+     $pos = $positions[$i];
+     if ($rubik[$pos]['v'] !== $orderedValues[$i] || 
+       $rubik[$pos]['c'] !== $orderedColors[$i]){
+       $assert = false;
+     }
+   }
+   return $assert;
+ }
+
  function getOrderedRubik(){
    /* WITH TEST */
    global $red, $green, $yellow, $blue, $magenta, $white;
@@ -335,6 +351,7 @@
  */
  // Filter get var
  $movesParam = filter_input(INPUT_GET, 'm', FILTER_SANITIZE_STRING);
+ $stateParam = filter_input(INPUT_GET, 's', FILTER_SANITIZE_STRING);
  // If moves are setted via string query
  if(isset($movesParam)){
    $moves = str_split($movesParam);
@@ -380,14 +397,22 @@
    }
  }
  
- $rubik=moveDP($rubik);
+ //$rubik=moveDP($rubik);
 
  if (isset($argv[0])){
    // if command line cli format is displayed
    formatCli($rubik);
  } else {
-   // else html format is displayed
-   formatHtml($rubik);
+   if (isset($stateParam) && $stateParam != ""){
+      if (isOrderedRubik($rubik)){
+         echo "Ordered";
+      } else {
+         echo "Unordered";
+      }
+   } else {
+      // else html format is displayed
+      formatHtml($rubik);
+   }
  }
 
  //var_dump($rubik);
