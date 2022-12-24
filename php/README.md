@@ -54,6 +54,6 @@ Finally the test tries sexyMove
 php test.php
 ```
 
-Note: Actual test were made manually
+Note: Actual test was made manually
 TODO: create phpunit standard test
 

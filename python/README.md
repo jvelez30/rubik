@@ -5,19 +5,20 @@
 It just shows ordered 3x3 colored rubik cube (magenta instead orange)
 
 python3 rubik.py
-
-# Run in web (this is not working well yet)
-
-python3 -m http.server 4700
-
-http://127.0.0.1:4700
-
-TODO: use some web framework like flask in order this run on the web
-
 # Run in docker
 
 docker run --name rubikpy -it --rm -v ${PWD}/python/:/workdir -w /workdir python /bin/bash
 python3 rubik.py
+# Run in web (this is not working well yet)
+
+run in docker
+
+pip3 install flask
+flask --app rubik run
+
+http://127.0.0.1:4700
+
+TODO: use some web framework like flask in order this run on the web
 
 # Moves
 
