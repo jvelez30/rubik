@@ -7,7 +7,7 @@ It just shows ordered 3x3 colored rubik cube (magenta instead orange)
 python3 rubik.py
 # Run in docker
 
-docker run --name rubikpy -it --rm -v ${PWD}/python/:/workdir -w /workdir python /bin/bash
+docker run --name rubikpy -it --rm -v ${PWD}:/workdir -w /workdir python /bin/bash
 python3 rubik.py
 # Run in web (this is not working well yet)
 

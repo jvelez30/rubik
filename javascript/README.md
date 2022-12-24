@@ -12,7 +12,7 @@ TODO: use express framework to running on web
 
 # Run in docker (this is not working yet)
 
-docker run --name rubikjs -it --rm -v ${PWD}/javascript/:/workdir -w /workdir node /bin/bash
+docker run --name rubikjs -it --rm -v ${PWD}:/workdir -w /workdir node /bin/bash
 nodejs rubik.js
 
 # Moves

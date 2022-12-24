@@ -14,8 +14,7 @@ http://127.0.0.1:4500/rubik.php
 
 # Run in docker
 
-docker run --name rubikphp -it --rm -v ${PWD}:/workdir php /bin/bash
-cd /working/php
+docker run --name rubikphp -it --rm -v ${PWD}:/workdir -w /workdir php /bin/bash
 php rubik.php
 
 # Moves
