@@ -26,7 +26,7 @@
    /* WITH TEST */
    global $red, $green, $yellow, $blue, $magenta, $white;
    $rubik = array();
-   $sides = array('U','B','R','D','L','F');
+   $sides = array('B','L','U','R','D','F');
    foreach ($sides as $side){
       for ($i = 1;$i<10;$i++){ 
          $rubik[$side.$i]['v'] = $side.$i;
@@ -54,6 +54,51 @@
    }
    return $rubik;
  }
+
+ function setRubikByString($statePositions, $stateColors){
+   global $red, $green, $yellow, $blue, $magenta, $white;
+   $rubik = array();
+   $statePositionsArray = str_split($statePositions,2);
+   // Validate statePositions
+   if (count ($statePositionsArray) != 54){
+      return false;
+   }
+   $stateColorsArray = str_split($stateColors,1);
+   // Validate stateColors
+   if (count ($stateColorsArray) != 54){
+      return false;
+   }
+   $sides = array('B','L','U','R','D','F');
+   $count = 0;
+   foreach ($sides as $side){
+      for ($i = 1;$i<10;$i++){ 
+         $rubik[$side.$i]['v'] = $statePositionsArray[$count];
+         switch ($stateColorsArray[$count]){
+         case 'Y':
+            $rubik[$side.$i]['c'] =  $yellow;
+            break;
+         case 'M':
+            $rubik[$side.$i]['c'] =  $magenta;
+            break;
+         case 'G':
+            $rubik[$side.$i]['c'] =  $green;
+            break;
+         case 'W':
+            $rubik[$side.$i]['c'] =  $white;
+            break;
+         case 'B':
+            $rubik[$side.$i]['c'] =  $blue;
+            break;
+         case 'R':
+            $rubik[$side.$i]['c'] =  $red;
+            break;
+         }
+         $count = $count + 1;
+      }
+   }
+   return $rubik;
+ }
+
  function rubikMove($rubik, $posA,$posN){
    $tempRubik = $rubik;
     for ($i = 0;$i < count($posA);$i++){
@@ -342,8 +387,13 @@
          break;
    }
  }
- $rubik=getOrderedRubik();
- 
+ //$rubik=getOrderedRubik();
+ $statePositions  = "B1B2B3B4B5B6B7B8B9L1L2L3L4L5L6L7L8L9";
+ $statePositions  = $statePositions . "U1U2U3U4U5U6U7U8U9R1R2R3R4R5R6R7R8R9";
+ $statePositions  = $statePositions . "D1D2D3D4D5D6D7D8D9F1F2F3F4F5F6F7F8F9";
+ $stateColors     = "MMMMMMMMMBBBBBBBBBYYYYYYYYY";
+ $stateColors     = $stateColors . "GGGGGGGGGWWWWWWWWWRRRRRRRRR";
+ $rubik = setRubikByString($statePositions, $stateColors);
  /*
  for ($j=0;$j<6;$j++){
    $rubik=sexyMove($rubik);
@@ -396,8 +446,8 @@
       }
    }
  }
- 
- //$rubik=moveDP($rubik);
+
+ $rubik=moveDP($rubik);
 
  if (isset($argv[0])){
    // if command line cli format is displayed
