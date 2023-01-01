@@ -12,7 +12,7 @@ def getOrderedRubik():
     #global red, green, yellow, blue, magenta, white
     rubikValues = {}
     rubikColors = {}
-    sides = ['U','B','R','D','L','F']
+    sides = ['B','L','U','R','D','F']
     for side in sides:
         for i in range(1, 10):
             index = side + str(i)
