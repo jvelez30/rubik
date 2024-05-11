@@ -139,26 +139,26 @@ def printPos(rubik, pos):
 
 def formatCli(rubik):
     print("         |--------|"+"\n" +
-                "         |"+printPos(rubik, 'B1')+"-"+printPos(rubik, 'B2')+"-"+printPos(rubik, 'B3')+"|"+"\n" +
-                "         |"+printPos(rubik, 'B4')+"-"+printPos(rubik, 'B5')+"-"+printPos(rubik, 'B6')+"|"+"\n" +
-                "         |"+printPos(rubik, 'B7')+"-"+printPos(rubik, 'B8')+"-"+printPos(rubik, 'B9')+"|"+"\n" +
+                "         |"+printPos(rubik, "B1")+"-"+printPos(rubik, "B2")+"-"+printPos(rubik, "B3")+"|"+"\n" +
+                "         |"+printPos(rubik, "B4")+"-"+printPos(rubik, "B5")+"-"+printPos(rubik, "B6")+"|"+"\n" +
+                "         |"+printPos(rubik, "B7")+"-"+printPos(rubik, "B8")+"-"+printPos(rubik, "B9")+"|"+"\n" +
                 "|--------|--------|--------|--------|"+"\n" +
-                "|"+printPos(rubik, 'L1')+"-"+printPos(rubik, 'L2')+"-"+printPos(rubik, 'L3')+"|" +
-                printPos(rubik, 'U1')+"-"+printPos(rubik, 'U2')+"-"+printPos(rubik, 'U3') +
-                "|"+printPos(rubik, 'R1')+"-"+printPos(rubik, 'R2')+"-"+printPos(rubik, 'R3')+"|" +
+                "|"+printPos(rubik, "L1")+"-"+printPos(rubik, "L2")+"-"+printPos(rubik, "L3")+"|" +
+                printPos(rubik, "U1")+"-"+printPos(rubik, "U2")+"-"+printPos(rubik, "U3") +
+                "|"+printPos(rubik, "R1")+"-"+printPos(rubik, "R2")+"-"+printPos(rubik, "R3")+"|" +
                 printPos(rubik, "D1")+"-"+printPos(rubik, "D2")+"-"+printPos(rubik, "D3")+"|"+"\n" +
-                "|"+printPos(rubik, 'L4')+"-"+printPos(rubik, 'L5')+"-"+printPos(rubik, 'L6')+"|" +
-                printPos(rubik, 'U4')+"-"+printPos(rubik, 'U5')+"-"+printPos(rubik, 'U6') +
-                "|"+printPos(rubik, 'R4')+"-"+printPos(rubik, 'R5')+"-"+printPos(rubik, 'R6')+"|" +
+                "|"+printPos(rubik, "L4")+"-"+printPos(rubik, "L5")+"-"+printPos(rubik, "L6")+"|" +
+                printPos(rubik, "U4")+"-"+printPos(rubik, "U5")+"-"+printPos(rubik, "U6") +
+                "|"+printPos(rubik, "R4")+"-"+printPos(rubik, "R5")+"-"+printPos(rubik, "R6")+"|" +
                 printPos(rubik, "D4")+"-"+printPos(rubik, "D5")+"-"+printPos(rubik, "D6")+"|"+"\n" +
-                "|"+printPos(rubik, 'L7')+"-"+printPos(rubik, 'L8')+"-"+printPos(rubik, 'L9')+"|" +
-                printPos(rubik, 'U7')+"-"+printPos(rubik, 'U8')+"-"+printPos(rubik, 'U9') +
-                "|"+printPos(rubik, 'R7')+"-"+printPos(rubik, 'R8')+"-"+printPos(rubik, 'R9')+"|" +
+                "|"+printPos(rubik, "L7")+"-"+printPos(rubik, "L8")+"-"+printPos(rubik, "L9")+"|" +
+                printPos(rubik, "U7")+"-"+printPos(rubik, "U8")+"-"+printPos(rubik, "U9") +
+                "|"+printPos(rubik, "R7")+"-"+printPos(rubik, "R8")+"-"+printPos(rubik, "R9")+"|" +
                 printPos(rubik, "D7")+"-"+printPos(rubik, "D8")+"-"+printPos(rubik, "D9")+"|"+"\n" +
                 "|--------|--------|--------|--------|"+"\n" +
-                "         |"+printPos(rubik, 'F1')+"-"+printPos(rubik, 'F2')+"-"+printPos(rubik, 'F3')+"|"+"\n" +
-                "         |"+printPos(rubik, 'F4')+"-"+printPos(rubik, 'F5')+"-"+printPos(rubik, 'F6')+"|"+"\n" +
-                "         |"+printPos(rubik, 'F7')+"-"+printPos(rubik, 'F8')+"-"+printPos(rubik, 'F9')+"|"+"\n" +
+                "         |"+printPos(rubik, "F1")+"-"+printPos(rubik, "F2")+"-"+printPos(rubik, "F3")+"|"+"\n" +
+                "         |"+printPos(rubik, "F4")+"-"+printPos(rubik, "F5")+"-"+printPos(rubik, "F6")+"|"+"\n" +
+                "         |"+printPos(rubik, "F7")+"-"+printPos(rubik, "F8")+"-"+printPos(rubik, "F9")+"|"+"\n" +
                 "         |--------|"+"\n")
 
 def printPosHtml(rubik, pos):
@@ -166,24 +166,24 @@ def printPosHtml(rubik, pos):
 
 def formatHtml(rubik):
     print("<table>")
-    print(" <tr><td></td><td>"+printPosHtml(rubik, 'B1')+"-"+printPosHtml(rubik, 'B2')+"-"+printPosHtml(rubik, 'B3')+"</td></tr>")
-    print(" <tr><td></td><td>"+printPosHtml(rubik, 'B4')+"-"+printPosHtml(rubik, 'B5')+"-"+printPosHtml(rubik, 'B6')+"</td></tr>")
-    print(" <tr><td></td><td>"+printPosHtml(rubik, 'B7')+"-"+printPosHtml(rubik, 'B8')+"-"+printPosHtml(rubik, 'B9')+"</td></tr>")
-    print(" <tr><td>"+printPosHtml(rubik, 'L1')+"-"+printPosHtml(rubik, 'L2')+"-"+printPosHtml(rubik, 'L3')+"</td>")
-    print("     <td>"+printPosHtml(rubik, 'U1')+"-"+printPosHtml(rubik, 'U2')+"-"+printPosHtml(rubik, 'U3')+"</td>")
-    print("     <td>"+printPosHtml(rubik, 'R1')+"-"+printPosHtml(rubik, 'R2')+"-"+printPosHtml(rubik, 'R3')+"</td>")
+    print(" <tr><td></td><td>"+printPosHtml(rubik, "B1")+"-"+printPosHtml(rubik, "B2")+"-"+printPosHtml(rubik, "B3")+"</td></tr>")
+    print(" <tr><td></td><td>"+printPosHtml(rubik, "B4")+"-"+printPosHtml(rubik, "B5")+"-"+printPosHtml(rubik, "B6")+"</td></tr>")
+    print(" <tr><td></td><td>"+printPosHtml(rubik, "B7")+"-"+printPosHtml(rubik, "B8")+"-"+printPosHtml(rubik, "B9")+"</td></tr>")
+    print(" <tr><td>"+printPosHtml(rubik, "L1")+"-"+printPosHtml(rubik, "L2")+"-"+printPosHtml(rubik, "L3")+"</td>")
+    print("     <td>"+printPosHtml(rubik, "U1")+"-"+printPosHtml(rubik, "U2")+"-"+printPosHtml(rubik, "U3")+"</td>")
+    print("     <td>"+printPosHtml(rubik, "R1")+"-"+printPosHtml(rubik, "R2")+"-"+printPosHtml(rubik, "R3")+"</td>")
     print("     <td>"+printPosHtml(rubik, "D1")+"-"+printPosHtml(rubik, "D2")+"-"+printPosHtml(rubik, "D3")+"</td></tr>")
-    print(" <tr><td>"+printPosHtml(rubik, 'L4')+"-"+printPosHtml(rubik, 'L5')+"-"+printPosHtml(rubik, 'L6')+"</td>")
-    print("     <td>"+printPosHtml(rubik, 'U4')+"-"+printPosHtml(rubik, 'U5')+"-"+printPosHtml(rubik, 'U6')+"</td>")
-    print("     <td>"+printPosHtml(rubik, 'R4')+"-"+printPosHtml(rubik, 'R5')+"-"+printPosHtml(rubik, 'R6')+"</td>")
+    print(" <tr><td>"+printPosHtml(rubik, "L4")+"-"+printPosHtml(rubik, "L5")+"-"+printPosHtml(rubik, "L6")+"</td>")
+    print("     <td>"+printPosHtml(rubik, "U4")+"-"+printPosHtml(rubik, "U5")+"-"+printPosHtml(rubik, "U6")+"</td>")
+    print("     <td>"+printPosHtml(rubik, "R4")+"-"+printPosHtml(rubik, "R5")+"-"+printPosHtml(rubik, "R6")+"</td>")
     print("     <td>"+printPosHtml(rubik, "D4")+"-"+printPosHtml(rubik, "D5")+"-"+printPosHtml(rubik, "D6")+"</td></tr>")
-    print(" <tr><td>"+printPosHtml(rubik, 'L7')+"-"+printPosHtml(rubik, 'L8')+"-"+printPosHtml(rubik, 'L9')+"</td>")
-    print("     <td>"+printPosHtml(rubik, 'U7')+"-"+printPosHtml(rubik, 'U8')+"-"+printPosHtml(rubik, 'U9')+"</td>")
-    print("     <td>"+printPosHtml(rubik, 'R7')+"-"+printPosHtml(rubik, 'R8')+"-"+printPosHtml(rubik, 'R9')+"</td>")
+    print(" <tr><td>"+printPosHtml(rubik, "L7")+"-"+printPosHtml(rubik, "L8")+"-"+printPosHtml(rubik, "L9")+"</td>")
+    print("     <td>"+printPosHtml(rubik, "U7")+"-"+printPosHtml(rubik, "U8")+"-"+printPosHtml(rubik, "U9")+"</td>")
+    print("     <td>"+printPosHtml(rubik, "R7")+"-"+printPosHtml(rubik, "R8")+"-"+printPosHtml(rubik, "R9")+"</td>")
     print("     <td>"+printPosHtml(rubik, "D7")+"-"+printPosHtml(rubik, "D8")+"-"+printPosHtml(rubik, "D9")+"</td></tr>")
-    print(" <tr><td></td><td>"+printPosHtml(rubik, 'F1')+"-"+printPosHtml(rubik, 'F2')+"-"+printPosHtml(rubik, 'F3')+"</td></tr>")
-    print(" <tr><td></td><td>"+printPosHtml(rubik, 'F4')+"-"+printPosHtml(rubik, 'F5')+"-"+printPosHtml(rubik, 'F6')+"</td></tr>")
-    print(" <tr><td></td><td>"+printPosHtml(rubik, 'F7')+"-"+printPosHtml(rubik, 'F8')+"-"+printPosHtml(rubik, 'F9')+"</td></tr>")
+    print(" <tr><td></td><td>"+printPosHtml(rubik, "F1")+"-"+printPosHtml(rubik, "F2")+"-"+printPosHtml(rubik, "F3")+"</td></tr>")
+    print(" <tr><td></td><td>"+printPosHtml(rubik, "F4")+"-"+printPosHtml(rubik, "F5")+"-"+printPosHtml(rubik, "F6")+"</td></tr>")
+    print(" <tr><td></td><td>"+printPosHtml(rubik, "F7")+"-"+printPosHtml(rubik, "F8")+"-"+printPosHtml(rubik, "F9")+"</td></tr>")
     print("</table>")
 
 # def translateColorToHtml(color):
