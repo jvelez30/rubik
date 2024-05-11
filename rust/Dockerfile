@@ -11,4 +11,5 @@ COPY . .
 RUN cargo build --release
 
 # Ejecutar la aplicación cuando el contenedor se inicie
-CMD ["cargo", "run"]
+# CMD ["cargo", "run"]
+CMD ["sleep", "infinity"]
