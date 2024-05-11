@@ -1,4 +1,4 @@
-# Rubik code in 5 languages
+# Rubik code in 6 languages
 
 # languages
 
