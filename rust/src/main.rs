@@ -8,135 +8,123 @@ magenta = "\x1b[95m"
 white = "\x1b[97m"
 
 def getOrderedRubik():
-    """WITH TEST"""
-    #global red, green, yellow, blue, magenta, white
+    """
+    Inicializa un cubo Rubik ordenado.
+    Devuelve una lista con dos diccionarios: posiciones y colores.
+    """
     rubikValues = {}
     rubikColors = {}
-    sides = ["B","L","U","R","D","F"]
+    sides = ["B", "L", "U", "R", "D", "F"]
     for side in sides:
         for i in range(1, 10):
             index = side + str(i)
             rubikValues[index] = index
-            match side:
-                case "U":
-                    rubikColors[index] = yellow
-                case "B":
-                    rubikColors[index] = magenta
-                case "R":
-                    rubikColors[index] = green
-                case "D":
-                    rubikColors[index] = white
-                case "L":
-                    rubikColors[index] = blue
-                case "F":
-                    rubikColors[index] = red
-    rubik = [rubikValues,rubikColors]
-    return rubik
+            rubikColors[index] = {"U": "yellow", "B": "magenta", "R": "green",
+                                  "D": "white", "L": "blue", "F": "red"}[side]
+    return [rubikValues, rubikColors]
 
 def rubikMove(rubik, posA, posN):
+    """
+    Realiza un movimiento del cubo Rubik.
+    Argumentos: rubik (cubo), posA (posiciones iniciales), posN (posiciones finales).
+    Devuelve el cubo actualizado.
+    """
     tempRubik = copy.deepcopy(rubik)
-    for i in range (0, len(posA)):
-        posActual = posA[i]
-        posNew = posN[i]
-        rubik[0][posActual] = tempRubik[0][posNew]
-        rubik[1][posActual] = tempRubik[1][posNew]
+    for i in range(len(posA)):
+        rubik[0][posA[i]] = tempRubik[0][posN[i]]
+        rubik[1][posA[i]] = tempRubik[1][posN[i]]
     return rubik
 
 def moveU(rubik):
-    """WITH TEST"""
-    # Rotate A Side
-    posToChange = ['U1','U2','U3','U6','U9','U8','U7','U4','R1','R4','R7','F1','F2','F3','L3','L6','L9','B7','B8','B9']
-    posNewVal = ['U7','U4','U1','U2','U3','U6','U9','U8','B7','B8','B9','R7','R4','R1','F1','F2','F3','L9','L6','L3']
-    rubik = rubikMove(rubik, posToChange, posNewVal)
-    return rubik
+    """
+    Rota la cara superior (U) en sentido horario.
+    Devuelve el cubo actualizado.
+    """
+    posToChange = ["U1", "U2", "U3", "U6", "U9", "U8", "U7", "U4", "R1", "R4", "R7", "F1", "F2", "F3", "L3", "L6", "L9", "B7", "B8", "B9"]
+    posNewVal = ["U7", "U4", "U1", "U2", "U3", "U6", "U9", "U8", "B7", "B8", "B9", "R7", "R4", "R1", "F1", "F2", "F3", "L9", "L6", "L3"]
+    return rubikMove(rubik, posToChange, posNewVal)
 
 def moveUP(rubik):
-    """WITH TEST"""
-    # Rotate A Side in reverse
-    posToChange = ['U1','U2','U3','U6','U9','U8','U7','U4','R1','R4','R7','F1','F2','F3','L3','L6','L9','B7','B8','B9']
-    posNewVal = ['U3','U6','U9','U8','U7','U4','U1','U2','F3','F2','F1','L3','L6','L9','B9','B8','B7','R1','R4','R7']
-    rubik = rubikMove(rubik, posToChange, posNewVal)
-    return rubik
+    """
+    Rota la cara superior (U) en sentido antihorario.
+    Devuelve el cubo actualizado.
+    """
+    posToChange = ["U1", "U2", "U3", "U6", "U9", "U8", "U7", "U4", "R1", "R4", "R7", "F1", "F2", "F3", "L3", "L6", "L9", "B7", "B8", "B9"]
+    posNewVal = ["U3", "U6", "U9", "U8", "U7", "U4", "U1", "U2", "F3", "F2", "F1", "L3", "L6", "L9", "B9", "B8", "B7", "R1", "R4", "R7"]
+    return rubikMove(rubik, posToChange, posNewVal)
 
 def moveR(rubik):
-    """WITH TEST"""
-    # Rotate R Side
-    posToChange = ['R1','R2','R3','R6','R9','R7','R8','R4','B3','B6','B9',"D7","D4","D1",'F3','F6','F9','U3','U6','U9']
-    posNewVal = ['R7','R4','R1','R2','R3','R9','R6','R8','U3','U6','U9','B3','B6','B9',"D7","D4","D1",'F3','F6','F9']
-    rubik = rubikMove(rubik, posToChange, posNewVal)
-    return rubik
+    """
+    Rota la cara derecha (R) en sentido horario.
+    Devuelve el cubo actualizado.
+    """
+    posToChange = ["R1", "R2", "R3", "R6", "R9", "R7", "R8", "R4", "B3", "B6", "B9", "D7", "D4", "D1", "F3", "F6", "F9", "U3", "U6", "U9"]
+    posNewVal = ["R7", "R4", "R1", "R2", "R3", "R9", "R6", "R8", "U3", "U6", "U9", "B3", "B6", "B9", "D7", "D4", "D1", "F3", "F6", "F9"]
+    return rubikMove(rubik, posToChange, posNewVal)
 
 def moveRP(rubik):
-    """WITH TEST"""
-    # Rotate R Side in reverse
-    posToChange = ['R1','R2','R3','R6','R9','R8','R7','R4','B3','B6','B9',"D7","D4","D1",'F3','F6','F9','U3','U6','U9']
-    posNewVal = ['R3','R6','R9','R8','R7','R4','R1','R2',"D7","D4","D1",'F3','F6','F9','U3','U6','U9','B3','B6','B9']
-    rubik = rubikMove(rubik, posToChange, posNewVal)
-    return rubik
+    """
+    Rota la cara derecha (R) en sentido antihorario.
+    Devuelve el cubo actualizado.
+    """
+    posToChange = ["R1", "R2", "R3", "R6", "R9", "R8", "R7", "R4", "B3", "B6", "B9", "D7", "D4", "D1", "F3", "F6", "F9", "U3", "U6", "U9"]
+    posNewVal = ["R3", "R6", "R9", "R8", "R7", "R4", "R1", "R2", "D7", "D4", "D1", "F3", "F6", "F9", "U3", "U6", "U9", "B3", "B6", "B9"]
+    return rubikMove(rubik, posToChange, posNewVal)
 
 def moveL(rubik):
-    """WITH TEST"""
-    # Rotate L Side
-    posToChange = ['L1','L2','L3','L6','L9','L7','L8','L4','B1','B4','B7','U1','U4','U7','F1','F4','F7',"D3","D6","D9"]
-    posNewVal = ['L7','L4','L1','L2','L3','L9','L6','L8',"D9","D6","D3",'B1','B4','B7','U1','U4','U7','F7','F4','F1']
-    rubik = rubikMove(rubik, posToChange, posNewVal)
-    return rubik
+    """
+    Rota la cara izquierda (L) en sentido horario.
+    Devuelve el cubo actualizado.
+    """
+    posToChange = ["L1", "L2", "L3", "L6", "L9", "L7", "L8", "L4", "B1", "B4", "B7", "U1", "U4", "U7", "F1", "F4", "F7", "D3", "D6", "D9"]
+    posNewVal = ["L7", "L4", "L1", "L2", "L3", "L9", "L6", "L8", "D9", "D6", "D3", "B1", "B4", "B7", "U1", "U4", "U7", "F7", "F4", "F1"]
+    return rubikMove(rubik, posToChange, posNewVal)
 
 def moveLP(rubik):
-    """WITH TEST"""
-    # Rotate L Side in reverse
-    posToChange = ['L1','L2','L3','L6','L9','L8','L7','L4','B1','B4','B7','U1','U4','U7','F1','F4','F7',"D3","D6","D9"]
-    posNewVal = ['L3','L6','L9','L8','L7','L4','L1','L2','U1','U4','U7','F1','F4','F7',"D9","D6","D3",'B7','B4','B1']
-    rubik = rubikMove(rubik, posToChange, posNewVal)
-    return rubik
+    """
+    Rota la cara izquierda (L) en sentido antihorario.
+    Devuelve el cubo actualizado.
+    """
+    posToChange = ["L1", "L2", "L3", "L6", "L9", "L8", "L7", "L4", "B1", "B4", "B7", "U1", "U4", "U7", "F1", "F4", "F7", "D3", "D6", "D9"]
+    posNewVal = ["L3", "L6", "L9", "L8", "L7", "L4", "L1", "L2", "U1", "U4", "U7", "F1", "F4", "F7", "D9", "D6", "D3", "B7", "B4", "B1"]
+    return rubikMove(rubik, posToChange, posNewVal)
 
 def moveF(rubik):
-    """WITH TEST"""
-    # Rotate F Side
-    posToChange = ['F1','F2','F3','F6','F9','F7','F8','F4','L7','L8','L9','U7','U8','U9','R7','R8','R9',"D7","D8","D9"]
-    posNewVal = ['F7','F4','F1','F2','F3','F9','F6','F8',"D7","D8","D9",'L7','L8','L9','U7','U8','U9','R7','R8','R9']
-    rubik = rubikMove(rubik, posToChange, posNewVal)
-    return rubik
+    """
+    Rota la cara frontal (F) en sentido horario.
+    Devuelve el cubo actualizado.
+    """
+    posToChange = ["F1", "F2", "F3", "F6", "F9", "F7", "F8", "F4", "L7", "L8", "L9", "U7", "U8", "U9", "R7", "R8", "R9", "D7", "D8", "D9"]
+    posNewVal = ["F7", "F4", "F1", "F2", "F3", "F9", "F6", "F8", "D7", "D8", "D9", "L7", "L8", "L9", "U7", "U8", "U9", "R7", "R8", "R9"]
+    return rubikMove(rubik, posToChange, posNewVal)
 
 def moveFP(rubik):
-    """WITH TEST"""
-    # Rotate F Side in reverse
-    posToChange = ['F1','F2','F3','F6','F9','F8','F7','F4','L7','L8','L9','U7','U8','U9','R7','R8','R9',"D7","D8","D9"]
-    posNewVal = ['F3','F6','F9','F8','F7','F4','F1','F2','U7','U8','U9','R7','R8','R9',"D7","D8","D9",'L7','L8','L9']
-    rubik = rubikMove(rubik, posToChange, posNewVal)
-    return rubik
-
-def moveB(rubik):
-    """WITH TEST"""
-    # Rotate B Side
-    posToChange = ['B1','B2','B3','B6','B9','B8','B7','B4','L1','L2','L3','U1','U2','U3','R1','R2','R3',"D1","D2","D3"]
-    posNewVal = ['B7','B4','B1','B2','B3','B6','B9','B8','U1','U2','U3','R1','R2','R3',"D1","D2","D3",'L1','L2','L3']
-    rubik = rubikMove(rubik, posToChange, posNewVal)
-    return rubik
-
-def moveBP(rubik):
-    """WITH TEST"""
-    # Rotate B Side in reverse
-    posToChange = ['B1','B2','B3','B6','B9','B8','B7','B4','L1','L2','L3','U1','U2','U3','R1','R2','R3',"D1","D2","D3"]
-    posNewVal = ['B3','B6','B9','B8','B7','B4','B1','B2',"D1","D2","D3",'L1','L2','L3','U1','U2','U3','R1','R2','R3']
-    rubik = rubikMove(rubik, posToChange, posNewVal)
-    return rubik
+    """
+    Rota la cara frontal (F) en sentido antihorario.
+    Devuelve el cubo actualizado.
+    """
+    posToChange = ["F1", "F2", "F3", "F6", "F9", "F8", "F7", "F4", "L7", "L8", "L9", "U7", "U8", "U9", "R7", "R8", "R9", "D7", "D8", "D9"]
+    posNewVal = ["F3", "F6", "F9", "F8", "F7", "F4", "F1", "F2", "U7", "U8", "U9", "R7", "R8", "R9", "D7", "D8", "D9", "L7", "L8", "L9"]
+    return rubikMove(rubik, posToChange, posNewVal)
 
 def moveD(rubik):
-    """WITH TEST"""
-    # Rotate D Side
-    posToChange = ["D1","D2","D3","D6","D9","D8","D7","D4",'B1','B2','B3','L1','L4','L7','R3','R6','R9','F7','F8','F9']
-    posNewVal = ["D7","D4","D1","D2","D3","D6","D9","D8",'R3','R6','R9','B3','B2','B1','F9','F8','F7','L1','L4','L7']
-    rubik = rubikMove(rubik, posToChange, posNewVal)
-    return rubik
+    """
+    Rota la cara inferior (D) en sentido horario.
+    Devuelve el cubo actualizado.
+    """
+    posToChange = ["D1", "D2", "D3", "D6", "D9", "D7", "D8", "D4", "L1", "L2", "L3", "F7", "F8", "F9", "R3", "R2", "R1", "B1", "B2", "B3"]
+    posNewVal = ["D7", "D4", "D1", "D2", "D3", "D9", "D6", "D8", "F7", "F8", "F9", "R3", "R2", "R1", "B3", "B2", "B1", "L3", "L2", "L1"]
+    return rubikMove(rubik, posToChange, posNewVal)
 
 def moveDP(rubik):
-    """WITH TEST"""
-    # Rotate D Side in reverse
-    posToChange = ["D1","D2","D3","D6","D9","D8","D7","D4",'B1','B2','B3','L1','L4','L7','R3','R6','R9','F7','F8','F9']
-    posNewVal = ["D3","D6","D9","D8","D7","D4","D1","D2",'L7','L4','L1','F7','F8','F9','B1','B2','B3','R9','R6','R3']
-    rubik = rubikMove(rubik, posToChange, posNewVal)
-    return rubik
+    """
+    Rota la cara inferior (D) en sentido antihorario.
+    Devuelve el cubo actualizado.
+    """
+    posToChange = ["D1", "D2", "D3", "D6", "D9", "D8", "D7", "D4", "L1", "L2", "L3", "F7", "F8", "F9", "R3", "R2", "R1", "B1", "B2", "B3"]
+    posNewVal = ["D3", "D6", "D9", "D8", "D7", "D4", "D1", "D2", "B3", "B2", "B1", "L1", "L2", "L3", "F9", "F8", "F7", "R1", "R2", "R3"]
+    return rubikMove(rubik, posToChange, posNewVal)
+
 
 def sexyMove(rubik):
     """WITH TEST"""
