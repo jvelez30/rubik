@@ -152,15 +152,15 @@ impl Rubik {
         self.rubik_move(&pos_a, &pos_n);
     }
 
-    fn move_u(&mut self) {
-        let pos_a = ["U1", "U2", "U3", "U6", "U9", "U8", "U7", "U4", "R1", "R4", "R7", "F1", "F2", "F3", "L3", "L6", "L9", "B7", "B8", "B9"];
-        let pos_n = ["U7", "U4", "U1", "U2", "U3", "U6", "U9", "U8", "B7", "B8", "B9", "R7", "R4", "R1", "F1", "F2", "F3", "L9", "L6", "L3"];
-        self.rubik_move(&pos_a, &pos_n);
-    }
-
     fn move_rp(&mut self) {
         let pos_a = ["R1", "R2", "R3", "R6", "R9", "R8", "R7", "R4", "B3", "B6", "B9", "D7", "D4", "D1", "F3", "F6", "F9", "U3", "U6", "U9"];
         let pos_n = ["R3", "R6", "R9", "R8", "R7", "R4", "R1", "R2", "D7", "D4", "D1", "F3", "F6", "F9", "U3", "U6", "U9", "B3", "B6", "B9"];
+        self.rubik_move(&pos_a, &pos_n);
+    }
+
+    fn move_u(&mut self) {
+        let pos_a = ["U1", "U2", "U3", "U6", "U9", "U8", "U7", "U4", "R1", "R4", "R7", "F1", "F2", "F3", "L3", "L6", "L9", "B7", "B8", "B9"];
+        let pos_n = ["U7", "U4", "U1", "U2", "U3", "U6", "U9", "U8", "B7", "B8", "B9", "R7", "R4", "R1", "F1", "F2", "F3", "L9", "L6", "L3"];
         self.rubik_move(&pos_a, &pos_n);
     }
 
@@ -176,7 +176,7 @@ impl Rubik {
         self.rubik_move(&pos_a, &pos_n);
     }
 
-    fn move_l_prime(&mut self) {
+    fn move_lp(&mut self) {
         let pos_a = ["L1", "L2", "L3", "L6", "L9", "L7", "L8", "L4", "B7", "B4", "B1", "D3", "D6", "D9", "F1", "F4", "F7", "U1", "U4", "U7"];
         let pos_n = ["L3", "L6", "L9", "L8", "L7", "L4", "L1", "L2", "D9", "D6", "D3", "F7", "F4", "F1", "U7", "U4", "U1", "B1", "B4", "B7"];
         self.rubik_move(&pos_a, &pos_n);
@@ -185,6 +185,40 @@ impl Rubik {
     fn move_d(&mut self) {
         let pos_a = ["D1", "D2", "D3", "D6", "D9", "D8", "D7", "D4", "R3", "R6", "R9", "F7", "F8", "F9", "L1", "L2", "L3", "B1", "B2", "B3"];
         let pos_n = ["D7", "D4", "D1", "D2", "D3", "D6", "D9", "D8", "B1", "B2", "B3", "R3", "R6", "R9", "F7", "F8", "F9", "L1", "L2", "L3"];
+        self.rubik_move(&pos_a, &pos_n);
+    }
+
+    fn move_dp(&mut self) {
+        let pos_a = ["D1", "D2", "D3", "D6", "D9", "D8", "D7", "D4", "B1", "B2", "B3", "L1", "L4", "L7", "R3", "R6", "R9", "F7", "F8", "F9"];
+        let pos_n = ["D3", "D6", "D9", "D8", "D7", "D4", "D1", "D2", "L7", "L4", "L1", "F7", "F8", "F9", "B1", "B2", "B3", "R9", "R6", "R3"];
+        self.rubik_move(&pos_a, &pos_n);
+    }
+
+    // Function to rotate the F face
+    fn move_f(&mut self) {
+        let pos_a = ["F1", "F2", "F3", "F6", "F9", "F7", "F8", "F4", "L7", "L8", "L9", "U7", "U8", "U9", "R7", "R8", "R9", "D7", "D8", "D9"];
+        let pos_n = ["F7", "F4", "F1", "F2", "F3", "F9", "F6", "F8", "D7", "D8", "D9", "L7", "L8", "L9", "U7", "U8", "U9", "R7", "R8", "R9"];
+        self.rubik_move(&pos_a, &pos_n);
+    }
+
+    // Function to rotate the F face in reverse
+    fn move_fp(&mut self) {
+        let pos_a = ["F1", "F2", "F3", "F6", "F9", "F8", "F7", "F4", "L7", "L8", "L9", "U7", "U8", "U9", "R7", "R8", "R9", "D7", "D8", "D9"];
+        let pos_n = ["F3", "F6", "F9", "F8", "F7", "F4", "F1", "F2", "U7", "U8", "U9", "R7", "R8", "R9", "D7", "D8", "D9", "L7", "L8", "L9"];
+        self.rubik_move(&pos_a, &pos_n);
+    }
+
+    // Function to rotate the B face
+    fn move_b(&mut self) {
+        let pos_a = ["B1", "B2", "B3", "B6", "B9", "B8", "B7", "B4", "L1", "L2", "L3", "U1", "U2", "U3", "R1", "R2", "R3", "D1", "D2", "D3"];
+        let pos_n = ["B7", "B4", "B1", "B2", "B3", "B6", "B9", "B8", "U1", "U2", "U3", "R1", "R2", "R3", "D1", "D2", "D3", "L1", "L2", "L3"];
+        self.rubik_move(&pos_a, &pos_n);
+    }
+
+    // Function to rotate the B face in reverse
+    pub fn move_bp(&mut self) {
+        let pos_a = ["B1", "B2", "B3", "B6", "B9", "B8", "B7", "B4", "L1", "L2", "L3", "U1", "U2", "U3", "R1", "R2", "R3", "D1", "D2", "D3"];
+        let pos_n = ["B3", "B6", "B9", "B8", "B7", "B4", "B1", "B2", "D1", "D2", "D3", "L1", "L2", "L3", "U1", "U2", "U3", "R1", "R2", "R3"];
         self.rubik_move(&pos_a, &pos_n);
     }
 }
