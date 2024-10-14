@@ -342,7 +342,24 @@
    global $red, $green, $yellow, $blue, $magenta, $white;
    return '<span style="background-color: '.translateColorToHtml($rubik[$pos]['c']).'">'.$rubik[$pos]['v'].'</span>';
  }
+ function printHeadHtml(){
+   echo '<head>' . "\n";
+   echo '  <meta charset="UTF-8">' . "\n";
+   echo '  <meta name="viewport" content="width=device-width, initial-scale=1.0">' . "\n";
+   echo '  <meta http-equiv="X-UA-Compatible" content="IE=edge">' . "\n";
+   echo '  <title>' . "Título Dinámico en PHP" . '</title>' . "\n"; // Título dinámico con PHP
+   echo '</head>' . "\n";
+ }
  function formatHtml($rubik){
+   echo '<!DOCTYPE html>' . "\n";
+   echo '<html lang="es">' . "\n";
+   printHeadHtml();
+   echo '<body>' . "\n";
+   printRubik2DHtml($rubik);
+   echo '</body>' . "\n";
+   echo '</html>' . "\n";
+ }
+ function printRubik2DHtml($rubik){
    echo "<table>";
    echo " <tr><td></td><td>" . printPosHtml($rubik,'B1') . "-" . printPosHtml($rubik,'B2') . "-" . printPosHtml($rubik,'B3') . "</td></tr>";
    echo " <tr><td></td><td>" . printPosHtml($rubik,'B4') . "-" . printPosHtml($rubik,'B5') . "-" . printPosHtml($rubik,'B6') . "</td></tr>";
@@ -400,8 +417,8 @@
  }
  */
  // Filter get var
- $movesParam = filter_input(INPUT_GET, 'm', FILTER_SANITIZE_STRING);
- $stateParam = filter_input(INPUT_GET, 's', FILTER_SANITIZE_STRING);
+ $movesParam = filter_input(INPUT_GET, 'm', FILTER_SANITIZE_SPECIAL_CHARS);
+ $stateParam = filter_input(INPUT_GET, 's', FILTER_SANITIZE_SPECIAL_CHARS);
  // If moves are setted via string query
  if(isset($movesParam)){
    $moves = str_split($movesParam);
@@ -447,7 +464,7 @@
    }
  }
 
- $rubik=moveDP($rubik);
+ //$rubik=moveDP($rubik);
 
  if (isset($argv[0])){
    // if command line cli format is displayed
