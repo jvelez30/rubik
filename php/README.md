@@ -17,6 +17,10 @@ http://127.0.0.1:4500/rubik.php
 docker run --name rubikphp -it --rm -v ${PWD}:/workdir -w /workdir php /bin/bash
 php rubik.php
 
+# Run web server in docker
+
+docker run --name rubikphp -it --rm -p 8095:4500 -v ${PWD}:/workdir -w /workdir --entrypoint php php -S 0.0.0.0:4500
+
 # Moves
 
 R = Right
