@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cubo de Rubik 3x3 en 3D con CSS</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f0f0f0;
+      margin: 0;
+      perspective: 800px;
+    }
+
+    .cube-container {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      transform-style: preserve-3d;
+      transform: rotateX(-30deg) rotateY(30deg);
+      animation: rotate 10s infinite linear;
+    }
+
+    .cubie {
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      /* background-color: rgba(255, 255, 255, 0.9); */
+      /* border: 2px solid #333; */
+      box-sizing: border-box;
+      transform-style: preserve-3d;
+    }
+
+    /* Definimos las caras de cada cubie */
+    .face {
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border: 2px solid #333;
+    }
+    .front  { background-color: red;    transform: rotateY(  0deg) translateZ(45px); }
+    .back   { background-color: orange; transform: rotateY(180deg) translateZ(45px); }
+    .right  { background-color: green;  transform: rotateY( 90deg) translateZ(45px); }
+    .left   { background-color: blue;   transform: rotateY(-90deg) translateZ(45px); }
+    .top    { background-color: yellow; transform: rotateX( 90deg) translateZ(45px); }
+    .bottom { background-color: white;  transform: rotateX(-90deg) translateZ(45px); }
+    /*
+    @keyframes rotate {
+      from { transform: rotateX(-30deg) rotateY(30deg); }
+      to   { transform: rotateX(-30deg) rotateY(30deg); }
+    }*/
+    @keyframes rotate {
+      from { transform: rotateX(-30deg) rotateY(-30deg); }
+      to   { transform: rotateX(-30deg) rotateY(-30deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="cube-container">
+    <!-- Creamos los 27 cubies del cubo 3x3 -->
+    <!-- Corte Frontal -->
+    <!-- Primera capa de cubies -->
+    <div class="cubie" style="transform: translate3d(-100px, -100px, 100px);">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+
+    <div class="cubie" style="transform: translate3d(0, -100px, 100px);">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+
+    <div class="cubie" style="transform: translate3d(100px, -100px, 100px);">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+
+    <!-- Segunda capa de cubies -->
+    <div class="cubie" style="transform: translate3d(-100px, 0, 100px);">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+
+    <div class="cubie" style="transform: translate3d(0, 0, 100px);">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+
+    <div class="cubie" style="transform: translate3d(100px, 0, 100px);">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+
+    <!-- Tercera capa de cubies -->
+    <div class="cubie" style="transform: translate3d(-100px, 100px, 100px);">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+
+    <div class="cubie" style="transform: translate3d(0, 100px, 100px);">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+
+    <div class="cubie" style="transform: translate3d(100px, 100px, 100px);">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+    <!-- Corte Central -->
+    <!-- Primera capa de cubies -->
+    <div class="cubie" style="transform: translate3d(-100px, -100px, 0px);">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+
+    <div class="cubie" style="transform: translate3d(0, -100px, 0px);">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+
+    <div class="cubie" style="transform: translate3d(100px, -100px, 0px);">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+
+    <!-- Segunda capa de cubies -->
+    <div class="cubie" style="transform: translate3d(-100px, 0, 0px);">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+
+    <div class="cubie" style="transform: translate3d(0, 0, 0px);">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+
+    <div class="cubie" style="transform: translate3d(100px, 0, 0px);">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+
+    <!-- Tercera capa de cubies -->
+    <div class="cubie" style="transform: translate3d(-100px, 100px, 0px);">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+
+    <div class="cubie" style="transform: translate3d(0, 100px, 0px);">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+
+    <div class="cubie" style="transform: translate3d(100px, 100px, 0px);">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+    <!-- Corte Trasero -->
+    <!-- Primera capa de cubies -->
+    <div class="cubie" style="transform: translate3d(-100px, -100px, -100px);">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+
+    <div class="cubie" style="transform: translate3d(0, -100px, -100px);">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+
+    <div class="cubie" style="transform: translate3d(100px, -100px, -100px);">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+
+    <!-- Segunda capa de cubies -->
+    <div class="cubie" style="transform: translate3d(-100px, 0, -100px);">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+
+    <div class="cubie" style="transform: translate3d(0, 0, -100px);">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+
+    <div class="cubie" style="transform: translate3d(100px, 0, -100px);">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+
+    <!-- Tercera capa de cubies -->
+    <div class="cubie" style="transform: translate3d(-100px, 100px, -100px);">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+
+    <div class="cubie" style="transform: translate3d(0, 100px, -100px);">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+
+    <div class="cubie" style="transform: translate3d(100px, 100px, -100px);">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+  </div>
+</body>
+</html>
