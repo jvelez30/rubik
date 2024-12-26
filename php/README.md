@@ -45,15 +45,15 @@ d = Down prime
 
 Use query string parameter m as follow
 
-http://127.0.0.1:4500/app/rubik.php?m=U
+http://127.0.0.1:8096/rubik.php?m=U
 
 This show rubik ordered plus U move
 
-http://127.0.0.1:4500/app/rubik.php?m=RUru
+http://127.0.0.1:8096/rubik.php?m=RUru
 
 This shows the rubik ordered after sexy move
 
-http://127.0.0.1:8095/app/rubik.php?s=1&m=RUruRUruRUruRUruRUruRUru
+http://127.0.0.1:8096/rubik.php?s=1&m=RUruRUruRUruRUruRUruRUru
 
 It display "Ordered" after make 6 sexy moves
 
