@@ -1,6 +1,6 @@
 <?php
 /* Rubik Asserts */
-require_once("assertAux.php");
+require_once __DIR__ . '/lib/assertAux.php';
 function assertOrderedRubik($rubik){
   global $red, $green, $yellow, $blue, $magenta, $white;
   global $positions, $orderedValues, $orderedColors;

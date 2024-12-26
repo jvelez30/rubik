@@ -1,6 +1,6 @@
 <?php
  /* Rubik Asserts */
- require_once("assertAux.php");
+ require_once __DIR__ . '/lib/assertAux.php';
  $red="\e[31m";
  $green="\e[32m"; 
  $yellow="\e[33m"; 
