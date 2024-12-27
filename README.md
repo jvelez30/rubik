@@ -1,6 +1,6 @@
-# Rubik code in 6 languages
+# Rubik code in 7 languages
 
-# languages
+## languages
 
 * Php (Pass Test, Web)
 * Python (Pass Test)
@@ -8,3 +8,4 @@
 * Rust (Pre-alpha without test)
 * Javascript (Fail)
 * CSharp (Fail)
+* C (Works without test)
