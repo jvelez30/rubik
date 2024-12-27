@@ -305,15 +305,41 @@ void formatCli(RubikCube *rubik) {
 }
 
 
-int main() {
+int main(int argc, char *argv[]) {
     RubikCube rubik;
     initializeRubik(&rubik);
+
     printf("Initial Rubik's Cube:\n");
     formatCli(&rubik);
 
-    moveU(&rubik);
-    //sexyMove(&rubik);
-    printf("\nAfter moveU:\n");
+    // Verifica si se proporcionaron argumentos
+    if (argc > 1) {
+        for (int i = 1; i < argc; i++) { // Recorre cada argumento proporcionado
+            char *sequence = argv[i];
+            for (int j = 0; j < strlen(sequence); j++) { // Procesa cada carácter de la secuencia
+                switch (sequence[j]) {
+                    case 'U': moveU(&rubik); break;
+                    case 'u': moveUP(&rubik); break;
+                    case 'F': moveF(&rubik); break;
+                    case 'f': moveFP(&rubik); break;
+                    case 'R': moveR(&rubik); break;
+                    case 'r': moveRP(&rubik); break;
+                    case 'L': moveL(&rubik); break;
+                    case 'l': moveLP(&rubik); break;
+                    case 'D': moveD(&rubik); break;
+                    case 'd': moveDP(&rubik); break;
+                    case 'B': moveB(&rubik); break;
+                    case 'b': moveBP(&rubik); break;
+                    default:
+                        fprintf(stderr, "Unknown move: %c\n", sequence[j]);
+                        break;
+                }
+            }
+        }
+    }
+
+    // Muestra el cubo después de los movimientos
+    printf("\nAfter moves:\n");
     formatCli(&rubik);
 
     return 0;
