@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 #define RED "\e[31m"
 #define GREEN "\e[32m"
@@ -304,43 +305,72 @@ void formatCli(RubikCube *rubik) {
     );
 }
 
+// Verifica si dos cubos son iguales
+bool compareCubes(RubikCube *c1, RubikCube *c2) {
+    for (int i = 0; i < 54; i++) {
+        if (strcmp(c1->pieces[i].v, c2->pieces[i].v) != 0 ||
+            strcmp(c1->pieces[i].c, c2->pieces[i].c) != 0) {
+            return false;
+        }
+    }
+    return true;
+}
 
+// Manejo de argumentos y movimientos
 int main(int argc, char *argv[]) {
-    RubikCube rubik;
+    RubikCube rubik, initialRubik;
     initializeRubik(&rubik);
+    initializeRubik(&initialRubik); // Guardamos el cubo inicial para comparaciones
 
-    printf("Initial Rubik's Cube:\n");
-    formatCli(&rubik);
+    bool suppressOutput = false; // Variable para manejar la opción -s
+    char *sequence = NULL;
 
-    // Verifica si se proporcionaron argumentos
-    if (argc > 1) {
-        for (int i = 1; i < argc; i++) { // Recorre cada argumento proporcionado
-            char *sequence = argv[i];
-            for (int j = 0; j < strlen(sequence); j++) { // Procesa cada carácter de la secuencia
-                switch (sequence[j]) {
-                    case 'U': moveU(&rubik); break;
-                    case 'u': moveUP(&rubik); break;
-                    case 'F': moveF(&rubik); break;
-                    case 'f': moveFP(&rubik); break;
-                    case 'R': moveR(&rubik); break;
-                    case 'r': moveRP(&rubik); break;
-                    case 'L': moveL(&rubik); break;
-                    case 'l': moveLP(&rubik); break;
-                    case 'D': moveD(&rubik); break;
-                    case 'd': moveDP(&rubik); break;
-                    case 'B': moveB(&rubik); break;
-                    case 'b': moveBP(&rubik); break;
-                    default:
-                        fprintf(stderr, "Unknown move: %c\n", sequence[j]);
-                        break;
-                }
+    // Procesar argumentos
+    for (int i = 1; i < argc; i++) {
+        if (strcmp(argv[i], "-s") == 0) {
+            suppressOutput = true; // Si se pasa -s, activa la bandera
+        } else {
+            sequence = argv[i]; // La secuencia de movimientos
+        }
+    }
+
+    // Realizar movimientos si se proporciona una secuencia
+    if (sequence) {
+        for (int j = 0; j < strlen(sequence); j++) {
+            switch (sequence[j]) {
+                case 'U': moveU(&rubik); break;
+                case 'u': moveUP(&rubik); break;
+                case 'F': moveF(&rubik); break;
+                case 'f': moveFP(&rubik); break;
+                case 'R': moveR(&rubik); break;
+                case 'r': moveRP(&rubik); break;
+                case 'L': moveL(&rubik); break;
+                case 'l': moveLP(&rubik); break;
+                case 'D': moveD(&rubik); break;
+                case 'd': moveDP(&rubik); break;
+                case 'B': moveB(&rubik); break;
+                case 'b': moveBP(&rubik); break;
+                default:
+                    fprintf(stderr, "Unknown move: %c\n", sequence[j]);
+                    return 1;
             }
         }
     }
 
-    // Muestra el cubo después de los movimientos
-    printf("\nAfter moves:\n");
-    formatCli(&rubik);
+    // Si se pasa -s, verificamos el estado y no imprimimos el cubo
+    if (suppressOutput) {
+        if (compareCubes(&rubik, &initialRubik)) {
+            printf("Ordered\n");
+        } else {
+            printf("Unordered\n");
+        }
+    } else {
+        // Imprimir el cubo antes y después de los movimientos
+        printf("Initial Rubik's Cube:\n");
+        formatCli(&initialRubik); // El cubo inicial
+        printf("\nAfter moves:\n");
+        formatCli(&rubik); // El cubo modificado
+    }
 
     return 0;
 }
