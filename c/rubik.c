@@ -2,23 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdbool.h>
-
-#define RED "\e[31m"
-#define GREEN "\e[32m"
-#define YELLOW "\e[33m"
-#define BLUE "\e[34m"
-#define MAGENTA "\e[95m"
-#define WHITE "\e[97m"
-#define RESET "\e[0m"
-
-typedef struct {
-    char v[3];
-    char c[10];
-} RubikPiece;
-
-typedef struct {
-    RubikPiece pieces[54];
-} RubikCube;
+#include "rubik.h"
 
 void initializeRubik(RubikCube *rubik) {
     char *sides[] = {"B", "L", "U", "R", "D", "F"};
@@ -316,6 +300,8 @@ bool compareCubes(RubikCube *c1, RubikCube *c2) {
     return true;
 }
 
+// Deshabilitar el main si RUBIK_LIB está definido
+#ifndef RUBIK_LIB
 // Manejo de argumentos y movimientos
 int main(int argc, char *argv[]) {
     RubikCube rubik, initialRubik;
@@ -374,3 +360,4 @@ int main(int argc, char *argv[]) {
 
     return 0;
 }
+#endif
