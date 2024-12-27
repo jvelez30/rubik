@@ -57,3 +57,26 @@ This will apply the specified sequence of moves to the cube and then output:
 
 - `Ordered`: If the cube returns to its solved state after the moves.
 - `Unordered`: If the cube remains unsolved after the moves.
+
+## Permutations
+
+### Compile app
+
+```bash
+gcc -O3 -DRUBIK_LIB -o rubik_permuta rubik.c rubik_permuta.c
+```
+
+### Run app
+
+```bash
+./rubik_permuta 6
+```
+
+### Expected output
+
+```bash
+--- SUMMARY ---
+Total Ordered (Valid): 10464
+Total Unordered (Invalid): 2975520
+Execution Time: 31.31 seconds
+```
