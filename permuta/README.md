@@ -15,6 +15,7 @@ This application validates permutations generated from a set of characters based
 
 - Python 3.7 or higher.
 - Standard libraries (no additional dependencies required).
+- A web server running on `http://127.0.0.1:8096` with the endpoint `rubik.php` to validate permutations.
 
 ## Installation
 
@@ -31,6 +32,10 @@ This application validates permutations generated from a set of characters based
    python --version
    ```
 
+3. Set up a web server:
+   - Place the `rubik.php` file in your web server's root directory.
+   - Ensure the server is accessible at `http://127.0.0.1:8096`.
+
 ## Usage
 
 1. Run the application from the command line:
@@ -40,18 +45,19 @@ This application validates permutations generated from a set of characters based
    ```
 
 2. Configure the values in the script as needed:
+   - `base_url`: The URL of the server handling permutation validation (default: `http://127.0.0.1:8096/rubik.php?s=1&m=`).
    - `values`: Characters to generate permutations (default: `"UuFfRrLlDdBb"`).
    - `n`: Length of the permutations.
    - `batch_size`: Size of each batch for processing permutations.
 
-3. The program will generate all possible permutations, validate them, and display a summary at the end:
+3. The program will generate all possible permutations, validate them against the server, and display a summary at the end:
    - Total ordered permutations (`Ordered`).
    - Total unordered permutations (`Unordered`).
    - Total execution time.
 
 ## Example
 
-For a set of values `"UuFfRr"` and length `n = 3`:
+For a set of values `"UuFfRr"` and length `n = 4`:
 
 ```bash
 python permutation_validator.py
@@ -70,12 +76,12 @@ Execution Time: 2.34 seconds
 
 ## Customization
 
-You can modify the validation logic in the `is_ordered` function in the main file to adapt it to different or more complex rules.
+You can modify the validation logic in the `rubik.php` file on the server to adapt it to different or more complex rules.
 
 ## Notes
 
 - To improve performance on larger datasets, consider adjusting the batch size (`batch_size`).
-- If you plan to use this logic in another context, ensure the rules in `is_ordered` align with your requirements.
+- Ensure the web server is running and accessible before executing the script.
 
 ## Contributions
 
