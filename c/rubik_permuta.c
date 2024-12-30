@@ -13,22 +13,7 @@ void generate_permutations(const char *values, int n, char *current, int pos, Ru
         initializeRubik(&rubik);
 
         // Aplica la secuencia de movimientos
-        for (int i = 0; i < n; i++) {
-            switch (current[i]) {
-                case 'U': moveU(&rubik); break;
-                case 'u': moveUP(&rubik); break;
-                case 'R': moveR(&rubik); break;
-                case 'r': moveRP(&rubik); break;
-                case 'L': moveL(&rubik); break;
-                case 'l': moveLP(&rubik); break;
-                case 'F': moveF(&rubik); break;
-                case 'f': moveFP(&rubik); break;
-                case 'D': moveD(&rubik); break;
-                case 'd': moveDP(&rubik); break;
-                case 'B': moveB(&rubik); break;
-                case 'b': moveBP(&rubik); break;
-            }
-        }
+        applySequence(&rubik, current);
 
         // Compara el cubo resultante con el inicial
         if (compareCubes(&rubik, initial)) {
