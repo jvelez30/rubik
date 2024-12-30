@@ -367,6 +367,30 @@ void sexyMove(RubikCube *rubik) {
     moveUP(rubik);
 }
 
+// ApplySequence
+int applySequence(RubikCube *rubik, char *sequence){
+    for (int j = 0; j < (int)strlen(sequence); j++) {
+        switch (sequence[j]) {
+            case 'U': moveU(rubik);  break;
+            case 'u': moveUP(rubik); break;
+            case 'R': moveR(rubik);  break;
+            case 'r': moveRP(rubik); break;
+            case 'F': moveF(rubik);  break;
+            case 'f': moveFP(rubik); break;
+            case 'L': moveL(rubik);  break;
+            case 'l': moveLP(rubik); break;
+            case 'D': moveD(rubik);  break;
+            case 'd': moveDP(rubik); break;
+            case 'B': moveB(rubik);  break;
+            case 'b': moveBP(rubik); break;
+            default:
+                fprintf(stderr, "Movimiento desconocido: %c\n", sequence[j]);
+                return 1;
+        }
+    }
+    return 0;
+}
+
 // Imprime un sticker (color + etiqueta + RESET)
 static void printSticker(const RubikCube *rubik, int index) {
     // Tomamos el color y la posición desde la estructura
@@ -491,25 +515,7 @@ int main(int argc, char *argv[]) {
 
     // Si tenemos secuencia, ejecutar
     if (sequence) {
-        for (int j = 0; j < (int)strlen(sequence); j++) {
-            switch (sequence[j]) {
-                case 'U': moveU(&rubik);  break;
-                case 'u': moveUP(&rubik); break;
-                case 'R': moveR(&rubik);  break;
-                case 'r': moveRP(&rubik); break;
-                case 'F': moveF(&rubik);  break;
-                case 'f': moveFP(&rubik); break;
-                case 'L': moveL(&rubik);  break;
-                case 'l': moveLP(&rubik); break;
-                case 'D': moveD(&rubik);  break;
-                case 'd': moveDP(&rubik); break;
-                case 'B': moveB(&rubik);  break;
-                case 'b': moveBP(&rubik); break;
-                default:
-                    fprintf(stderr, "Movimiento desconocido: %c\n", sequence[j]);
-                    return 1;
-            }
-        }
+        applySequence(&rubik, sequence);
     }
 
     // Salida

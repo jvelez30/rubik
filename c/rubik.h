@@ -153,6 +153,9 @@ void moveBP(RubikCube *rubik);
 // Función auxiliar: el "sexy move" (R U R' U')
 void sexyMove(RubikCube *rubik);
 
+// Funcion applySequence
+int applySequence(RubikCube *rubik, char *sequence);
+
 static void printSticker(const RubikCube *rubik, int index);
 // Declaración de formatCli
 void formatCli(const RubikCube *rubik);
