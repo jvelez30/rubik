@@ -367,27 +367,6 @@ void sexyMove(RubikCube *rubik) {
     moveUP(rubik);
 }
 
-/*
-   Devuelve la etiqueta (por ejemplo, "B1" o "R9") a partir de color y facePos.
-   Usamos un buffer estático circular para poder devolver un puntero válido
-   aunque se llame varias veces en un mismo printf.
-*/
-static int gCallCount = 0;
-
-static const char *getStickerLabel(const RubikCube *rubik, int index) {
-    static char buffer[54][4];
-
-    int idx = gCallCount % 54;
-    gCallCount++;
-
-    int colorVal = rubik->pieces[index].color; 
-    int posVal   = rubik->pieces[index].facePos + 1;
-
-    char faceLetter = FACE_LETTER[colorVal];
-    snprintf(buffer[idx], sizeof(buffer[idx]), "%c%d", faceLetter, posVal);
-    return buffer[idx];
-}
-
 // Imprime un sticker (color + etiqueta + RESET)
 static void printSticker(const RubikCube *rubik, int index) {
     // Tomamos el color y la posición desde la estructura
